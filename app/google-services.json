@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "181618316497",
+    "project_id": "epanchayat-3594d",
+    "storage_bucket": "epanchayat-3594d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181618316497:android:69bd0b71fcf050c1cc61f0",
+        "android_client_info": {
+          "package_name": "com.example.epanchayat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181618316497-0c2e707m243lv633bjnjrmmtlvnbls7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAA9uiLCGMsJ9Q0d2W-OAnMnVcLwhL9N8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181618316497-0c2e707m243lv633bjnjrmmtlvnbls7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
