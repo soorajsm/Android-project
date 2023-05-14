@@ -147,33 +147,6 @@ public class Addmembers extends AppCompatActivity {
 
         Intent intent = new Intent();
         intent.setType("image/*");//
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
-//        Date now = new Date();
-//        String fileName = formatter.format(now);
-//        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
-//
-//        storageReference.putFile(imageUri)
-//                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//
-//                        binding.memberimage.setImageURI(null);
-//                        Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
-//                        if (progressDialog.isShowing())
-//                            progressDialog.dismiss();
-//
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//
-//
-//                        if (progressDialog.isShowing())
-//                            progressDialog.dismiss();
-//                        Toast.makeText(Addmembers.this, "Failed to upload the image", Toast.LENGTH_SHORT).show();
-//
-//                    }
-//                });
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent,100);
     }
