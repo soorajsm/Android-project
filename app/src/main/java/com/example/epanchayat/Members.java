@@ -2,15 +2,19 @@ package com.example.epanchayat;
 
 
 public class Members {
-    String name,gender,post,age,phoneno,area;
+    String name,gender,post,age,phoneno,area,uri;
 
-    public Members(String name, String gender, String post, String age, String phoneno, String area) {
+    public Members() {
+    }
+
+    public Members(String name, String gender, String post, String age, String phoneno, String area, String uri) {
         this.name = name;
         this.gender = gender;
         this.post = post;
         this.age = age;
         this.phoneno = phoneno;
         this.area = area;
+        this.uri=uri;
     }
 
     public String getName() {
@@ -59,5 +63,13 @@ public class Members {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 }

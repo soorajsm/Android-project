@@ -84,10 +84,10 @@ public class Addmembers extends AppCompatActivity {
         if(!name.isEmpty() && !gender.isEmpty() && !post.isEmpty() && !age.isEmpty() && !phoneno.isEmpty() && !area.isEmpty()) {
 
             reference=FirebaseDatabase.getInstance().getReference("Members");
-            Members members = new Members(name, gender, post, age, phoneno, area);
+            Members members = new Members(name, gender, post, age, phoneno, area , imageUri.getLastPathSegment().toString());
 
 
-            reference.push().setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
+            reference.child(name).setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
 
@@ -139,6 +139,8 @@ public class Addmembers extends AppCompatActivity {
 
                     }
                 });
+        Intent intent=new Intent(Addmembers.this,Memberlist.class);
+        startActivity(intent);
 
     }
 
