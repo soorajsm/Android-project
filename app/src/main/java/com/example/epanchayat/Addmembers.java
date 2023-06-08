@@ -28,11 +28,12 @@ import java.util.Locale;
 public class Addmembers extends AppCompatActivity {
 
 
+    String newuri="hey boi";
     String name,gender,post,age,phoneno,area;
     ActivityAddmembersBinding binding;
     Uri imageUri;
     StorageReference storageReference;
-    DatabaseReference reference;
+    DatabaseReference reference,newref;
     ProgressDialog progressDialog;
 
 
@@ -67,7 +68,7 @@ public class Addmembers extends AppCompatActivity {
 
     private void uploadData() {
 
-
+        // uplaoding data and image link to the firebase realtime database ..
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading File....");
@@ -84,7 +85,7 @@ public class Addmembers extends AppCompatActivity {
         if(!name.isEmpty() && !gender.isEmpty() && !post.isEmpty() && !age.isEmpty() && !phoneno.isEmpty() && !area.isEmpty()) {
 
             reference=FirebaseDatabase.getInstance().getReference("Members");
-            Members members = new Members(name, gender, post, age, phoneno, area , imageUri.getLastPathSegment().toString());
+            Members members = new Members(name, gender, post, age, phoneno, area);
 
 
             reference.child(name).setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -108,8 +109,7 @@ public class Addmembers extends AppCompatActivity {
 
         }
 
-
-
+        //uploading image to the firebase storage..
 
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
@@ -122,29 +122,40 @@ public class Addmembers extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        binding.memberimage.setImageURI(null);
-                        Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
-                        if (progressDialog.isShowing())
-                            progressDialog.dismiss();
+                        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+                                newref=FirebaseDatabase.getInstance().getReference("Members/"+name);
+                                newref.child("image").setValue(uri.toString());
 
+//                                reference.("image").setValue(uri.toString());
+                                binding.memberimage.setImageURI(null);
+                                Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
+                                if (progressDialog.isShowing())
+                                    progressDialog.dismiss();
 
-                        if (progressDialog.isShowing())
-                            progressDialog.dismiss();
-                        Toast.makeText(Addmembers.this, "Failed to upload the image", Toast.LENGTH_SHORT).show();
-
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                binding.memberimage.setImageURI(null);
+                                Toast.makeText(Addmembers.this, "Failed to uplaoad image", Toast.LENGTH_SHORT).show();
+                                if (progressDialog.isShowing())
+                                    progressDialog.dismiss();
+                            }
+                        });
                     }
                 });
+
+        // redirecting to memberlist page using explicit intent..
+
         Intent intent=new Intent(Addmembers.this,Memberlist.class);
         startActivity(intent);
 
     }
 
-
+// Selecting the image from galary usign implicit intent..
     private void selectImage() {
 
         Intent intent = new Intent();
@@ -152,6 +163,9 @@ public class Addmembers extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent,100);
     }
+
+    // After selecting image setting that image to the choosen imageview..
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -161,5 +175,6 @@ public class Addmembers extends AppCompatActivity {
             binding.memberimage.setImageURI(imageUri);
         }
     }
+
 
 }

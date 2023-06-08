@@ -192,6 +192,7 @@
                     android:layout_width="316dp"
                     android:layout_height="54dp"
                     android:layout_marginStart="-10dp"
+                    android:fontFamily="@font/audiowide"
                     android:text="Add Members"
                     android:textAlignment="center"
                     android:textColor="#00DDFF"
