@@ -62,6 +62,15 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.8'
 
 
+    implementation "androidx.recyclerview:recyclerview:"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
 
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }
+
+apply plugin : 'com.google.gms.google-services'
+apply plugin: 'com.android.application'

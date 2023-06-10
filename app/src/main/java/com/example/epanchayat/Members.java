@@ -2,7 +2,8 @@ package com.example.epanchayat;
 
 
 public class Members {
-    String name,gender,post,age,phoneno,area;
+    String name,gender,post,age,phoneno,area,imgurl;
+
 
     public Members() {
     }
@@ -14,6 +15,17 @@ public class Members {
         this.age = age;
         this.phoneno = phoneno;
         this.area = area;
+
+    }
+
+    public Members(String name, String gender, String post, String age, String phoneno, String area,String imgurl) {
+        this.name = name;
+        this.gender = gender;
+        this.post = post;
+        this.age = age;
+        this.phoneno = phoneno;
+        this.area = area;
+        this.imgurl=imgurl;
 
     }
 
@@ -64,5 +76,11 @@ public class Members {
     public void setArea(String area) {
         this.area = area;
     }
+
+    public String getImgurl() {return imgurl;}
+
+    public void setImgurl(String imgurl) { this.imgurl = imgurl;}
+
+
 
 }
