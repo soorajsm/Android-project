@@ -28,10 +28,11 @@ import java.util.Locale;
 public class Addmembers extends AppCompatActivity {
 
 
-    String newuri="hey boi";
+
     String name,gender,post,age,phoneno,area;
     ActivityAddmembersBinding binding;
     Uri imageUri;
+    String image="hhhd";
     StorageReference storageReference;
     DatabaseReference reference,newref;
     ProgressDialog progressDialog;
@@ -82,34 +83,11 @@ public class Addmembers extends AppCompatActivity {
         phoneno=binding.memberphone.getText().toString();
         area=binding.memberarea.getText().toString();
 
-        if(!name.isEmpty() && !gender.isEmpty() && !post.isEmpty() && !age.isEmpty() && !phoneno.isEmpty() && !area.isEmpty()) {
 
-            reference=FirebaseDatabase.getInstance().getReference("Members");
-            Members members = new Members(name, gender, post, age, phoneno, area);
+//hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
 
-            reference.child(name).setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
 
-                    binding.membername.setText("");
-                    binding.membergender.setText("");
-                    binding.memberpost.setText("");
-                    binding.memberage.setText("");
-                    binding.memberphone.setText("");
-                    binding.memberarea.setText("");
-
-                    Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
-
-                       if (progressDialog.isShowing())
-                       progressDialog.dismiss();
-
-                }
-            });
-
-        }
-
-        //uploading image to the firebase storage..
 
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
@@ -126,14 +104,17 @@ public class Addmembers extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
 
-                                newref=FirebaseDatabase.getInstance().getReference("Members/"+name);
-                                newref.child("image").setValue(uri.toString());
+//                                newref=FirebaseDatabase.getInstance().getReference("Members/"+name);
+//                                newref.child("image").setValue(uri.toString());
 
-//                                reference.("image").setValue(uri.toString());
                                 binding.memberimage.setImageURI(null);
                                 Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
                                 if (progressDialog.isShowing())
                                     progressDialog.dismiss();
+
+                                image=uri.toString();
+                                Trial();
+                                Toast.makeText(Addmembers.this, image, Toast.LENGTH_SHORT).show();
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -147,6 +128,44 @@ public class Addmembers extends AppCompatActivity {
                         });
                     }
                 });
+
+
+
+
+
+//
+//        if(!name.isEmpty() && !gender.isEmpty() && !post.isEmpty() && !age.isEmpty() && !phoneno.isEmpty() && !area.isEmpty()) {
+//
+//            reference=FirebaseDatabase.getInstance().getReference("Members");
+//            Members members = new Members(name, gender, post, age, phoneno, area, image);
+//
+//
+//            reference.child(name).setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                @Override
+//                public void onComplete(@NonNull Task<Void> task) {
+//
+//                    binding.membername.setText("");
+//                    binding.membergender.setText("");
+//                    binding.memberpost.setText("");
+//                    binding.memberage.setText("");
+//                    binding.memberphone.setText("");
+//                    binding.memberarea.setText("");
+//
+//
+//                    Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
+//
+//                       if (progressDialog.isShowing())
+//                       progressDialog.dismiss();
+//
+//                }
+//            });
+//
+//        }
+
+        //uploading image to the firebase storage..
+
+
+
 
         // redirecting to memberlist page using explicit intent..
 
@@ -175,6 +194,40 @@ public class Addmembers extends AppCompatActivity {
             binding.memberimage.setImageURI(imageUri);
         }
     }
+
+
+    public void Trial()
+    {
+
+        if(!name.isEmpty() && !gender.isEmpty() && !post.isEmpty() && !age.isEmpty() && !phoneno.isEmpty() && !area.isEmpty()) {
+
+            reference=FirebaseDatabase.getInstance().getReference("Members");
+            Members members = new Members(name, gender, post, age, phoneno, area, image);
+
+
+            reference.child(name).setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+
+                    binding.membername.setText("");
+                    binding.membergender.setText("");
+                    binding.memberpost.setText("");
+                    binding.memberage.setText("");
+                    binding.memberphone.setText("");
+                    binding.memberarea.setText("");
+
+
+                    Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
+
+                       if (progressDialog.isShowing())
+                       progressDialog.dismiss();
+
+                }
+            });
+
+        }
+    }
+
 
 
 }

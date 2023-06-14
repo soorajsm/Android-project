@@ -13,6 +13,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import com.squareup.picasso.Picasso;
+
 
 public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapter.myViewholder> {
      /**
@@ -27,6 +29,10 @@ public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapte
 
     @Override
     protected void onBindViewHolder(@NonNull myViewholder holder, int position, @NonNull Members model) {
+
+
+        //fetching data and setting to the corresponding fields
+
         holder.name.setText(model.getName());
         holder.area.setText(model.getArea());
         holder.age.setText(model.getAge());
@@ -34,11 +40,14 @@ public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapte
         holder.gender.setText(model.getGender());
         holder.phoneno.setText(model.getPhoneno());
 
-        Glide.with(holder.img.getContext()).load(model.getImgurl())
-                .placeholder(com.google.firebase.database.R.drawable.notification_tile_bg
-                )
-                .circleCrop().error(com.google.firebase.firestore.R.drawable.common_google_signin_btn_text_light_normal_background)
+
+        //To fetch the image we are using glid library
+
+        Glide.with(holder.img.getContext()).load(model.image)
+                .placeholder(com.google.firebase.database.R.drawable.notification_tile_bg)
+               .error("https://www.pngitem.com/pimgs/m/537-5372558_flat-man-icon-png-transparent-png.png")
                 .into(holder.img);
+
 
     }
 

@@ -59,8 +59,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.1.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.2.1'
 
-    implementation 'com.squareup.picasso:picasso:2.8'
-
 
     implementation "androidx.recyclerview:recyclerview:"
     // For control over item selection of both touch and mouse driven selection
@@ -70,7 +68,22 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.15.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    implementation ("com.github.bumptech.glide:glide:4.9.0") {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'androidx.annotation:annotation:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation ("com.github.bumptech.glide:glide:4.9.0@aar") {
+        transitive = true
+    }
+
+    //picaso
+
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.2'
+
 }
 
-apply plugin : 'com.google.gms.google-services'
+
 apply plugin: 'com.android.application'

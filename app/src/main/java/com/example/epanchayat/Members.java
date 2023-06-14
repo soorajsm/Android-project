@@ -2,30 +2,21 @@ package com.example.epanchayat;
 
 
 public class Members {
-    String name,gender,post,age,phoneno,area,imgurl;
+    String name,gender,post,age,phoneno,area,image;
 
 
     public Members() {
     }
 
-    public Members(String name, String gender, String post, String age, String phoneno, String area) {
+
+    public Members(String name, String gender, String post, String age, String phoneno, String area,String image) {
         this.name = name;
         this.gender = gender;
         this.post = post;
         this.age = age;
         this.phoneno = phoneno;
         this.area = area;
-
-    }
-
-    public Members(String name, String gender, String post, String age, String phoneno, String area,String imgurl) {
-        this.name = name;
-        this.gender = gender;
-        this.post = post;
-        this.age = age;
-        this.phoneno = phoneno;
-        this.area = area;
-        this.imgurl=imgurl;
+        this.image=image;
 
     }
 
@@ -77,9 +68,9 @@ public class Members {
         this.area = area;
     }
 
-    public String getImgurl() {return imgurl;}
+    public String getImgurl() {return image;}
 
-    public void setImgurl(String imgurl) { this.imgurl = imgurl;}
+    public void setImgurl(String imgurl) { this.image = imgurl;}
 
 
 

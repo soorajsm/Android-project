@@ -25,7 +25,7 @@ public class Memberlist extends AppCompatActivity {
     RecyclerView recyclerView;
     MemberAdapter memberAdapter;
 
-    ActivityMemberlistBinding binding;
+   ActivityMemberlistBinding binding;
 
     public Memberlist() {
         super();

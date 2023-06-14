@@ -15,4 +15,8 @@
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/round_drawable</item>
     </style>
+    
+    <style name="CircularImageview">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

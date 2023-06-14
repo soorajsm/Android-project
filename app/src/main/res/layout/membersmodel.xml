@@ -24,7 +24,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:foregroundGravity="center"
-            android:src="?android:attr/fingerprintAuthDrawable"
+            android:src="@drawable/googleg_standard_color_18"
             app:civ_border_color="#FF000000"
             app:civ_border_width="1dp" />
 
