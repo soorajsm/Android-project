@@ -1,3 +1,9 @@
+//package com.example.epanchayat;
+//
+//public class Complaintlist {
+//}
+
+
 package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
@@ -10,6 +16,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.epanchayat.databinding.ActivityComplaintlistBinding;
 import com.example.epanchayat.databinding.ActivityMemberlistBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -20,14 +27,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Memberlist extends AppCompatActivity {
+public class Complaintlist extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    MemberAdapter memberAdapter;
+    ComplaintAdapter complaintAdapter;
 
-    ActivityMemberlistBinding binding;
+    ActivityComplaintlistBinding binding;
 
-    public Memberlist() {
+    public Complaintlist() {
         super();
     }
 
@@ -35,24 +42,24 @@ public class Memberlist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityMemberlistBinding.inflate(getLayoutInflater());
+        binding=ActivityComplaintlistBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        recyclerView=binding.memrv;
+        recyclerView=binding.complaintrv;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FirebaseRecyclerOptions<Members> options =
-                new FirebaseRecyclerOptions.Builder<Members>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference("Members"), Members.class)
+        FirebaseRecyclerOptions<Complaints> options =
+                new FirebaseRecyclerOptions.Builder<Complaints>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference("Complaints"), Complaints.class)
                         .build();
 
-        memberAdapter=new MemberAdapter(options);
-        recyclerView.setAdapter(memberAdapter);
+        complaintAdapter=new ComplaintAdapter(options);
+        recyclerView.setAdapter(complaintAdapter);
 
-        binding.flbutton.setOnClickListener(new View.OnClickListener() {
+        binding.flbuttoncomp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Memberlist.this,Addmembers.class);
+                Intent intent=new Intent(Complaintlist.this, addComplaint.class);
                 startActivity(intent);
             }
         });
@@ -62,13 +69,13 @@ public class Memberlist extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       memberAdapter.startListening();
+        complaintAdapter.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        memberAdapter.stopListening();
+        complaintAdapter.stopListening();
     }
 
 }

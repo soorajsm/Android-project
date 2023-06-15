@@ -31,6 +31,7 @@ public class Addmembers extends AppCompatActivity {
 
     String name,gender,post,age,phoneno,area;
     ActivityAddmembersBinding binding;
+
     Uri imageUri;
     String image="hhhd";
     StorageReference storageReference;
@@ -47,8 +48,6 @@ public class Addmembers extends AppCompatActivity {
         binding.chooseimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 selectImage();
 
 
@@ -59,8 +58,6 @@ public class Addmembers extends AppCompatActivity {
         binding.submitdata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 uploadData();
 
             }
@@ -74,19 +71,12 @@ public class Addmembers extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading File....");
         progressDialog.show();
-
-
         name=binding.membername.getText().toString();
         gender=binding.membergender.getText().toString();
         post=binding.memberpost.getText().toString();
         age=binding.memberage.getText().toString();
         phoneno=binding.memberphone.getText().toString();
         area=binding.memberarea.getText().toString();
-
-
-//hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-
-
 
 
 
@@ -104,8 +94,7 @@ public class Addmembers extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
 
-//                                newref=FirebaseDatabase.getInstance().getReference("Members/"+name);
-//                                newref.child("image").setValue(uri.toString());
+            // here we are fetching the url of image that is stored in the firebase storage
 
                                 binding.memberimage.setImageURI(null);
                                 Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
@@ -113,8 +102,7 @@ public class Addmembers extends AppCompatActivity {
                                     progressDialog.dismiss();
 
                                 image=uri.toString();
-                                Trial();
-                                Toast.makeText(Addmembers.this, image, Toast.LENGTH_SHORT).show();
+                                upload();
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -128,44 +116,6 @@ public class Addmembers extends AppCompatActivity {
                         });
                     }
                 });
-
-
-
-
-
-//
-//        if(!name.isEmpty() && !gender.isEmpty() && !post.isEmpty() && !age.isEmpty() && !phoneno.isEmpty() && !area.isEmpty()) {
-//
-//            reference=FirebaseDatabase.getInstance().getReference("Members");
-//            Members members = new Members(name, gender, post, age, phoneno, area, image);
-//
-//
-//            reference.child(name).setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Void> task) {
-//
-//                    binding.membername.setText("");
-//                    binding.membergender.setText("");
-//                    binding.memberpost.setText("");
-//                    binding.memberage.setText("");
-//                    binding.memberphone.setText("");
-//                    binding.memberarea.setText("");
-//
-//
-//                    Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
-//
-//                       if (progressDialog.isShowing())
-//                       progressDialog.dismiss();
-//
-//                }
-//            });
-//
-//        }
-
-        //uploading image to the firebase storage..
-
-
-
 
         // redirecting to memberlist page using explicit intent..
 
@@ -196,7 +146,9 @@ public class Addmembers extends AppCompatActivity {
     }
 
 
-    public void Trial()
+
+    // uploading data and image url to the Firebase realtime database
+    public void upload()
     {
 
         if(!name.isEmpty() && !gender.isEmpty() && !post.isEmpty() && !age.isEmpty() && !phoneno.isEmpty() && !area.isEmpty()) {
@@ -231,3 +183,93 @@ public class Addmembers extends AppCompatActivity {
 
 
 }
+
+
+
+ class Members {
+    String name;
+    String gender;
+    String post;
+    String age;
+    String phoneno;
+    String area;
+    String image;
+    String key;
+
+
+    public Members() {
+    }
+
+
+    public Members(String name, String gender, String post, String age, String phoneno, String area,String image) {
+        this.name = name;
+        this.gender = gender;
+        this.post = post;
+        this.age = age;
+        this.phoneno = phoneno;
+        this.area = area;
+        this.image=image;
+
+
+    }
+
+    public String getKey() {return key;}
+
+    public void setKey(String key) {this.key = key;}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getPhoneno() {
+        return phoneno;
+    }
+
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getImgurl() {return image;}
+
+    public void setImgurl(String imgurl) { this.image = imgurl;}
+
+
+
+}
+

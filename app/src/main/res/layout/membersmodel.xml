@@ -4,19 +4,24 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="17dp"
     android:elevation="15dp"
     app:cardCornerRadius="15dp"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:background="#356A7A"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/memberimg"
+            android:id="@+id/inputimg"
             android:layout_width="100dp"
             android:layout_height="100dp"
 
@@ -33,13 +38,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="false"
-            android:layout_below="@id/inputage"
+            android:layout_below="@id/inputnumber"
             android:layout_centerInParent="false"
             android:layout_centerHorizontal="false"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@id/memberimg"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@id/inputimg"
             android:text="Area:"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -48,13 +54,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="false"
-            android:layout_below="@id/inputarea"
-            android:layout_centerInParent="false"
+            android:layout_below="@id/inputage"
             android:layout_centerHorizontal="false"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@id/memberimg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@id/inputimg"
             android:text="Ph no :"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -66,10 +72,11 @@
             android:layout_below="@id/inputpost"
             android:layout_centerInParent="false"
             android:layout_centerHorizontal="false"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@id/memberimg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@id/inputimg"
             android:text="Age:"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -78,13 +85,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="false"
-            android:layout_below="@id/inputGender"
+            android:layout_below="@id/inputgender"
             android:layout_centerInParent="false"
             android:layout_centerHorizontal="false"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@id/memberimg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@id/inputimg"
             android:text="Post:"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -95,27 +103,47 @@
             android:layout_alignWithParentIfMissing="false"
             android:layout_centerInParent="false"
             android:layout_centerHorizontal="false"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="1dp"
-            android:layout_toRightOf="@id/memberimg"
+            android:layout_toRightOf="@id/inputimg"
             android:text="Name :"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/inputGender"
+            android:id="@+id/inputgender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="false"
             android:layout_below="@id/inputname"
             android:layout_centerInParent="false"
             android:layout_centerHorizontal="false"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@id/memberimg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@id/inputimg"
             android:text="Gender :"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deletedatabtn"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="292dp"
+            android:layout_marginTop="103dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.828"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.918"
+            app:rippleColor="#FF0000"
+            app:srcCompat="@drawable/delete" />
 
     </RelativeLayout>
 

@@ -21,8 +21,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapter.myViewholder> {
-     /**
+public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, ComplaintAdapter.myViewholder> {
+    /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
      *
@@ -31,53 +31,50 @@ public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapte
 
 
 
-    public MemberAdapter(@NonNull FirebaseRecyclerOptions<Members> options) {
+    public ComplaintAdapter(@NonNull FirebaseRecyclerOptions<Complaints> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewholder holder, final int position, @NonNull Members model) {
-       int newposition=position;
+    protected void onBindViewHolder(@NonNull myViewholder holder, final int position, @NonNull Complaints model) {
+        int newposition=position;
 
         //fetching data and setting to the corresponding fields
 
-        holder.name.setText(model.getName());
-        holder.area.setText(model.getArea());
-        holder.age.setText(model.getAge());
-        holder.post.setText(model.getPost());
-        holder.gender.setText(model.getGender());
-        holder.phoneno.setText(model.getPhoneno());
+        holder.comptitle.setText(model.getComptitle());
+        holder.compdesc.setText(model.getCompdesc());
+
 
 
         //To fetch the image we are using glid library
 
         Glide.with(holder.img.getContext()).load(model.image)
                 .placeholder(com.google.firebase.database.R.drawable.common_google_signin_btn_text_light_focused)
-               .error("https://www.pngitem.com/pimgs/m/537-5372558_flat-man-icon-png-transparent-png.png")
+                .error("https://www.pngitem.com/pimgs/m/537-5372558_flat-man-icon-png-transparent-png.png")
                 .into(holder.img);
 
 
         // Performing delete operation
 
-        holder.deleteDatabtn.setOnClickListener(new View.OnClickListener() {
+        holder.deleteCompbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(holder.name.getContext());
+                AlertDialog.Builder builder=new AlertDialog.Builder(holder.comptitle.getContext());
                 builder.setTitle("Are you sure? ");
                 builder.setMessage("Deleted data can't be retrieved!!");
 
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(holder.name.getContext(), "deleted", Toast.LENGTH_SHORT).show();
-                        FirebaseDatabase.getInstance().getReference().child("Members").child(getRef(newposition).getKey()).removeValue();
+                        Toast.makeText(holder.comptitle.getContext(), "deleted", Toast.LENGTH_SHORT).show();
+                        FirebaseDatabase.getInstance().getReference().child("Complaints").child(getRef(newposition).getKey()).removeValue();
                     }
                 });
 
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(holder.name.getContext(), "canceled", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(holder.comptitle.getContext(), "canceled", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.show();
@@ -90,7 +87,7 @@ public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapte
     @NonNull
     @Override
     public myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.membersmodel,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.complaintmodel,parent,false);
 
         return new myViewholder(view);
     }
@@ -98,20 +95,17 @@ public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapte
     class myViewholder extends RecyclerView.ViewHolder{
 
         CircleImageView img;
-        TextView name,gender,post,age,phoneno,area;
-       FloatingActionButton deleteDatabtn;
+        TextView comptitle,compdesc;
+        FloatingActionButton deleteCompbtn;
 
         public myViewholder(@NonNull View itemView) {
             super(itemView);
 
-            img=itemView.findViewById(R.id.inputimg);
-            name=itemView.findViewById(R.id.inputname);
-            gender=itemView.findViewById(R.id.inputgender);
-            post=itemView.findViewById(R.id.inputpost);
-            age=itemView.findViewById(R.id.inputage);
-            phoneno=itemView.findViewById(R.id.inputnumber);
-            area=itemView.findViewById(R.id.inputarea);
-            deleteDatabtn=itemView.findViewById(R.id.deletedatabtn);
+            img=itemView.findViewById(R.id.setcompimg);
+            comptitle=itemView.findViewById(R.id.setcomptitle);
+            compdesc=itemView.findViewById(R.id.setcomdesc);
+
+            deleteCompbtn=itemView.findViewById(R.id.deletecompbtn);
 
         }
     }
