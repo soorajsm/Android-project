@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -57,6 +58,15 @@ public class Memberlist extends AppCompatActivity {
             }
         });
 
+        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(), HomePage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     @Override
@@ -70,6 +80,8 @@ public class Memberlist extends AppCompatActivity {
         super.onStop();
         memberAdapter.stopListening();
     }
+
+
 
 }
 

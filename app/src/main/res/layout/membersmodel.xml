@@ -20,18 +20,29 @@
         android:paddingRight="15dp"
         android:paddingBottom="10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/inputimg"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
 
             android:layout_centerInParent="false"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
-            android:foregroundGravity="center"
-            android:src="@drawable/googleg_standard_color_18"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="1dp" />
+
+            android:padding="3dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/common_google_signin_btn_icon_dark_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.854"
+            app:shapeAppearance="@style/roundrect"
+            app:strokeColor="@color/blueshade1"
+            app:strokeWidth="5dp"
+
+            />
 
         <TextView
             android:id="@+id/inputarea"

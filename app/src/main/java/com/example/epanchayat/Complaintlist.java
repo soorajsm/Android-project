@@ -64,6 +64,15 @@ public class Complaintlist extends AppCompatActivity {
             }
         });
 
+
+        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(), Userhome.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override

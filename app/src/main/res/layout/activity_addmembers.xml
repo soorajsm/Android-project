@@ -8,6 +8,7 @@
     tools:context=".Addmembers">
 
     <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +21,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,11 +31,11 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputcompsub"
+                    android:id="@+id/arealayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#FFFFFF"
                     app:hintTextColor="#00FFFF"
@@ -44,40 +44,13 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.107"
-                    tools:layout_marginStart="40dp">
+                    app:layout_constraintVertical_bias="0.678">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/membername"
+                        android:id="@+id/memberarea"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Enter the name"
-                        android:padding="15dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/genderlayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
-                    android:padding="10dp"
-                    android:textColorHint="#FFFFFF"
-                    app:hintTextColor="#00FFFF"
-                    app:layout_constraintBottom_toTopOf="@+id/agelayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputcompsub"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:layout_marginStart="40dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/membergender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter the Gender"
+                        android:hint="Enter the Area of the member"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
@@ -87,7 +60,8 @@
                     android:id="@+id/agelayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#FFFFFF"
                     app:hintTextColor="#00FFFF"
@@ -96,8 +70,7 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/postlayout"
-                    app:layout_constraintVertical_bias="0.5"
-                    tools:layout_marginStart="40dp">
+                    app:layout_constraintVertical_bias="0.5">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberage"
@@ -110,36 +83,11 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/postlayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
-                    android:padding="10dp"
-                    android:textColorHint="#FFFFFF"
-                    app:hintTextColor="#00FFFF"
-                    app:layout_constraintBottom_toTopOf="@+id/agelayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/genderlayout"
-                    app:layout_constraintVertical_bias="0.5"
-                    tools:layout_marginStart="40dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/memberpost"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter the Post"
-                        android:padding="15dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/phonelayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#FFFFFF"
                     app:hintTextColor="#00FFFF"
@@ -148,8 +96,7 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/agelayout"
-                    app:layout_constraintVertical_bias="0.5"
-                    tools:layout_marginStart="40dp">
+                    app:layout_constraintVertical_bias="0.5">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberphone"
@@ -162,10 +109,64 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/arealayout"
+                    android:id="@+id/genderlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:padding="10dp"
+                    android:textColorHint="#FFFFFF"
+                    app:hintTextColor="#00FFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/agelayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputcompsub"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/membergender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter the Gender"
+                        android:padding="15dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/postlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:padding="10dp"
+                    android:textColorHint="#FFFFFF"
+                    app:hintTextColor="#00FFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/agelayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genderlayout"
+                    app:layout_constraintVertical_bias="0.5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/memberpost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter the Post"
+                        android:padding="15dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputcompsub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#FFFFFF"
                     app:hintTextColor="#00FFFF"
@@ -174,23 +175,65 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.678"
-                    tools:layout_marginStart="40dp">
+                    app:layout_constraintVertical_bias="0.106">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/memberarea"
+                        android:id="@+id/membername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Enter the Area of the member"
+                        android:hint="Enter the name"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/memberimage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:padding="3dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/common_google_signin_btn_icon_dark_normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.25"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.854"
+                    app:shapeAppearance="@style/roundrect"
+                    app:strokeColor="@color/blueshade1"
+                    app:strokeWidth="5dp"
+                    tools:src="@tools:sample/avatars"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <Button
+                    android:id="@+id/chooseimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose image"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.815"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.817" />
+
+                <Button
+                    android:id="@+id/submitdata"
+                    android:layout_width="245dp"
+                    android:layout_height="54dp"
+                    android:text="submitdata"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.53"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.963" />
+
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="316dp"
-                    android:layout_height="54dp"
+                    android:layout_width="272dp"
+                    android:layout_height="37dp"
                     android:layout_marginStart="-10dp"
                     android:fontFamily="@font/audiowide"
                     android:text="Add Members"
@@ -200,53 +243,26 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.213"
+                    app:layout_constraintHorizontal_bias="0.581"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.052" />
+                    app:layout_constraintVertical_bias="0.057" />
 
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/memberimage"
-                    android:layout_width="154dp"
-                    android:layout_height="117dp"
-                    android:src="@drawable/common_google_signin_btn_icon_dark_normal"
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/flbuttonback"
+                    android:layout_width="56dp"
+                    android:layout_height="53dp"
+                    android:clickable="true"
+                    app:backgroundTint="#5F54A2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.855"
-                    app:shapeAppearance="@style/CircularImageview"
-                    app:strokeColor="@color/blueshade1"
-                    tools:src="@drawable/uploadfile"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-
-                <Button
-                    android:id="@+id/chooseimg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Choose image"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.765"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.818" />
-
-                <Button
-                    android:id="@+id/submitdata"
-                    android:layout_width="245dp"
-                    android:layout_height="54dp"
-                    android:text="submitdata"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.41"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.964" />
-
+                    app:layout_constraintVertical_bias="0.02"
+                    app:rippleColor="#FF0000"
+                    app:srcCompat="@drawable/backbutton" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

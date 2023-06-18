@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,6 +39,7 @@ public class Addmembers extends AppCompatActivity {
     StorageReference storageReference;
     DatabaseReference reference,newref;
     ProgressDialog progressDialog;
+
 
 
     @Override
@@ -62,6 +65,18 @@ public class Addmembers extends AppCompatActivity {
 
             }
         });
+
+        //floatig action back button
+
+        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),Memberlist.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     private void uploadData() {
@@ -181,7 +196,6 @@ public class Addmembers extends AppCompatActivity {
     }
 
 
-
 }
 
 
@@ -268,8 +282,6 @@ public class Addmembers extends AppCompatActivity {
     public String getImgurl() {return image;}
 
     public void setImgurl(String imgurl) { this.image = imgurl;}
-
-
 
 }
 

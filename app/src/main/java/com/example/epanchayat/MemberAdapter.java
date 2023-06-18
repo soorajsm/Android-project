@@ -18,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.FirebaseDatabase;
 
 
@@ -97,7 +98,7 @@ public class MemberAdapter extends FirebaseRecyclerAdapter<Members, MemberAdapte
 
     class myViewholder extends RecyclerView.ViewHolder{
 
-        CircleImageView img;
+        ShapeableImageView img;
         TextView name,gender,post,age,phoneno,area;
        FloatingActionButton deleteDatabtn;
 

@@ -6,4 +6,8 @@
     <color name="blueshade1">#0e2433</color>
     <color name="blueshade2">#1C4966</color>
     <color name="strokecolor" tools:overrise="true">#296D98</color>
+    <color name="lightgreen">#90EE90</color>
+<color name="orange">#FFD600</color>
+
+
 </resources>

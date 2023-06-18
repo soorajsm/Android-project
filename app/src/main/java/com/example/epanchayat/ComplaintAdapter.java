@@ -18,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.FirebaseDatabase;
 
 
@@ -29,7 +30,7 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
      * @param options
      */
 
-
+    String flag;
 
     public ComplaintAdapter(@NonNull FirebaseRecyclerOptions<Complaints> options) {
         super(options);
@@ -83,6 +84,12 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
             }
         });
 
+        flag= model.getFlag();
+        if(flag!=null)
+            holder.status.setText(model.getFlag());
+        else
+            holder.status.setText("Pending");
+
     }
     @NonNull
     @Override
@@ -94,18 +101,21 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
 
     class myViewholder extends RecyclerView.ViewHolder{
 
-        CircleImageView img;
-        TextView comptitle,compdesc;
+        ShapeableImageView img;
+        TextView comptitle,compdesc,status;
         FloatingActionButton deleteCompbtn;
+
+
 
         public myViewholder(@NonNull View itemView) {
             super(itemView);
 
             img=itemView.findViewById(R.id.setcompimg);
             comptitle=itemView.findViewById(R.id.setcomptitle);
-            compdesc=itemView.findViewById(R.id.setcomdesc);
+            compdesc=itemView.findViewById(R.id.setcompdesc);
 
             deleteCompbtn=itemView.findViewById(R.id.deletecompbtn);
+            status=itemView.findViewById(R.id.status);
 
         }
     }

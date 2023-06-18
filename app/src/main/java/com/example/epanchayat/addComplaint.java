@@ -59,6 +59,18 @@ public class addComplaint extends AppCompatActivity {
 
             }
         });
+
+
+        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),Complaintlist.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 
 
@@ -182,6 +194,16 @@ public class addComplaint extends AppCompatActivity {
 
 class Complaints {
     String comptitle,compdesc;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    String flag;
 
     String image;
 //    String key;

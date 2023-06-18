@@ -8,16 +8,42 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/epanchayat"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/epanchayat_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Epanchayat"
         tools:targetApi="31">
         <activity
+            android:name=".viewComplaintlist"
+            android:exported="true" />
+        <activity
+            android:name=".viewSchemelist"
+            android:exported="true" />
+        <activity
+            android:name=".viewMemberlist"
+            android:exported="true" />
+        <activity
+            android:name=".HomePage"
+            android:exported="true" />
+        <activity
+            android:name=".Userhome"
+            android:exported="true" />
+        <activity
+            android:name=".UserLog"
+            android:exported="true" />
+        <activity
+            android:name=".UserReg"
+            android:exported="true" />
+        <activity
+            android:name=".Schemelist"
+            android:exported="true" />
+        <activity
+            android:name=".addScheme"
+            android:exported="true" />
+        <activity
             android:name=".Complaintlist"
             android:exported="true" />
-
         <activity
             android:name=".addComplaint"
             android:exported="true" />
