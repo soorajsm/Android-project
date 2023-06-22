@@ -49,8 +49,8 @@ public class viewMemberlist extends AppCompatActivity {
         binding=ActivityViewMemberlistBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//
-//        clbtn=findViewById(R.id.calbtn);
+
+        clbtn=findViewById(R.id.callbtn);
         recyclerView=binding.memrv;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -76,7 +76,7 @@ public class viewMemberlist extends AppCompatActivity {
 //        clbtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                phno=members.getPhoneno();
+////                phno=members.getPhoneno();
 //                AlertDialog.Builder builder=new AlertDialog.Builder(viewMemberlist.this);
 //                builder.setTitle("Are you sure? ");
 //                builder.setMessage("This call is going to connect with "+members.getName());
@@ -86,7 +86,7 @@ public class viewMemberlist extends AppCompatActivity {
 //                    public void onClick(DialogInterface dialogInterface, int i) {
 //
 //
-////                        Toast.makeText(viewMemberlist.this, phno, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(viewMemberlist.this, phno, Toast.LENGTH_SHORT).show();
 //                    }
 //                });
 //

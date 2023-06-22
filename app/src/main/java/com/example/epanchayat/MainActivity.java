@@ -38,4 +38,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void adlogin(View V){
+        Intent intent=new Intent(MainActivity.this, UserLog.class);
+        startActivity(intent);
+    }
+
+
 }

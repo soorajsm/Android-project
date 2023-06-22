@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.854"
-            app:shapeAppearance="@style/roundrect"
+            app:shapeAppearance="@style/circular"
             app:strokeColor="@color/blueshade1"
             app:strokeWidth="5dp"
 

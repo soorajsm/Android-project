@@ -62,35 +62,9 @@ viewMemberlist viewmemberlist;
                 .into(holder.img);
 
 
-        // Performing delete operation
+//         Performing delete operation
 
-//        holder.callbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog.Builder builder=new AlertDialog.Builder(holder.name.getContext());
-//                builder.setTitle("Are you sure? ");
-//                builder.setMessage("This call is going to connect with "+model.getName());
-//
-//                builder.setPositiveButton("Okay! connect", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-////                        viewmemberlist.callno(phnumber);
-//
-//                        Toast.makeText(viewmemberlist,"hddhj", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        Toast.makeText(holder.name.getContext(), "canceled", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                builder.show();
-//
-//
-//            }
-//        });
+
 
     }
 
@@ -120,6 +94,45 @@ viewMemberlist viewmemberlist;
             age=itemView.findViewById(R.id.inputage);
             phoneno=itemView.findViewById(R.id.inputnumber);
             area=itemView.findViewById(R.id.inputarea);
+            callbtn=itemView.findViewById(R.id.callbtn);
+
+            Members newmember=new Members();
+
+            callbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(name.getContext());
+                    builder.setTitle("Are you sure? ");
+                    builder.setMessage("This call is going to connect with "+newmember.getName());
+
+                    builder.setPositiveButton("Okay! connect", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                            String phoneNumber =phoneno.getText().toString();
+//                                    newmember.getPhoneno().toString();
+                            if (phoneNumber != null && !phoneNumber.isEmpty()) {
+                                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
+                                name.getContext().startActivity(callIntent);
+                            }
+
+
+                    Toast.makeText(name.getContext(), "hello", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(name.getContext(), "canceled", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.show();
+
+
+                }
+            });
 
         }
     }

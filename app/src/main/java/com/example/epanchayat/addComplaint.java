@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -29,11 +31,14 @@ import java.util.Locale;
 
 public class addComplaint extends AppCompatActivity {
     ActivityAddcomplaintBinding binding;
-    String comptitle,compdesc,image;
+    String comptitle,compdesc,image,ctname="moo";
     StorageReference storageReference;
     DatabaseReference reference,newref;
     ProgressDialog progressDialog;
     Uri imageUri;
+
+    FirebaseAuth auth;
+    FirebaseUser user;
 
 
     @Override
@@ -41,6 +46,9 @@ public class addComplaint extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityAddcomplaintBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        auth=FirebaseAuth.getInstance();
+        user=auth.getCurrentUser();
 
         binding.compimgchoosebtn.setOnClickListener(new View.OnClickListener() {
                                                  @Override
@@ -108,6 +116,8 @@ public class addComplaint extends AppCompatActivity {
 
         comptitle=binding.inputcomptitle.getText().toString();
         compdesc=binding.inputcompdesc.getText().toString();
+        ctname=user.getEmail();
+
 
 
 
@@ -150,7 +160,7 @@ public class addComplaint extends AppCompatActivity {
 
         // redirecting to memberlist page using explicit intent..
 
-        Intent intent=new Intent(addComplaint.this,Complaintlist.class);
+        Intent intent=new Intent(addComplaint.this, Complaintlist.class);
         startActivity(intent);
 
     }
@@ -163,7 +173,7 @@ public class addComplaint extends AppCompatActivity {
         if(!comptitle.isEmpty() && !compdesc.isEmpty()) {
 
             reference= FirebaseDatabase.getInstance().getReference("Complaints");
-            Complaints complaints = new Complaints(comptitle, compdesc,image);
+            Complaints complaints = new Complaints(comptitle, compdesc,image,ctname);
 
 
             reference.child(comptitle).setValue(complaints).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -193,7 +203,9 @@ public class addComplaint extends AppCompatActivity {
 
 
 class Complaints {
-    String comptitle,compdesc;
+    String comptitle;
+    String compdesc;
+
 
     public String getFlag() {
         return flag;
@@ -206,15 +218,22 @@ class Complaints {
     String flag;
 
     String image;
+
+    String ctname;
+    String pdorply;
+
+
+
 //    String key;
 
 
     public Complaints() {
     }
-    public Complaints(String comptitle, String compdesc,String image) {
+    public Complaints(String comptitle, String compdesc,String image,String ctname) {
         this.comptitle = comptitle;
         this.compdesc = compdesc;
         this.image=image;
+        this.ctname=ctname;
     }
 
 
@@ -229,6 +248,14 @@ class Complaints {
     public String getImage() {return image;}
 
     public void setImage(String image) {this.image = image;}
+
+    public String getCtname() {return ctname;}
+
+    public void setCtname(String ctname) {this.ctname = ctname;}
+
+    public String getPdorply() {return pdorply;}
+
+    public void setPdorply(String pdorply) {this.pdorply = pdorply;}
 
 }
 

@@ -44,7 +44,7 @@ public class viewSchemeAdapter extends FirebaseRecyclerAdapter<Schemes, viewSche
 
         holder.scmtitle.setText(model.getScmtitle());
         holder.scmdesc.setText(model.getScmdesc());
-
+        holder.scmurl.setText(model.getScmurl());
 
 
         //To fetch the image we are using glid library
@@ -55,34 +55,6 @@ public class viewSchemeAdapter extends FirebaseRecyclerAdapter<Schemes, viewSche
                 .into(holder.img);
 
 
-        // Performing delete operation
-
-//        holder.deletescmbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog.Builder builder=new AlertDialog.Builder(holder.scmtitle.getContext());
-//                builder.setTitle("Are you sure? ");
-//                builder.setMessage("Deleted data can't be retrieved!!");
-//
-//                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        Toast.makeText(holder.scmtitle.getContext(), "deleted", Toast.LENGTH_SHORT).show();
-//                        FirebaseDatabase.getInstance().getReference().child("Schemes").child(getRef(newposition).getKey()).removeValue();
-//                    }
-//                });
-//
-//                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        Toast.makeText(holder.scmtitle.getContext(), "canceled", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                builder.show();
-//
-//
-//            }
-//        });
 
     }
     @NonNull
@@ -96,7 +68,7 @@ public class viewSchemeAdapter extends FirebaseRecyclerAdapter<Schemes, viewSche
     class myViewholder extends RecyclerView.ViewHolder{
 
         ShapeableImageView img;
-        TextView scmtitle,scmdesc;
+        TextView scmtitle,scmdesc,scmurl;
 
 
         public myViewholder(@NonNull View itemView) {
@@ -105,6 +77,7 @@ public class viewSchemeAdapter extends FirebaseRecyclerAdapter<Schemes, viewSche
             img=itemView.findViewById(R.id.setscmimg);
             scmtitle=itemView.findViewById(R.id.setscmtitle);
             scmdesc=itemView.findViewById(R.id.setscmdesc);
+            scmurl=itemView.findViewById(R.id.setscmurl);
 
         }
     }

@@ -4,16 +4,15 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="17dp"
     android:elevation="15dp"
     app:cardCornerRadius="15dp"
-    app:cardUseCompatPadding="true"
-    >
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#356A7A"
         android:paddingLeft="25dp"
@@ -23,8 +22,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/inputimg"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
 
             android:layout_centerInParent="false"
             android:layout_centerVertical="true"
@@ -39,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.854"
-            app:shapeAppearance="@style/roundrect"
+            app:shapeAppearance="@style/circular"
             app:strokeColor="@color/blueshade1"
             app:strokeWidth="5dp"
 
@@ -140,25 +139,24 @@
             android:textStyle="bold" />
 
 
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/calbtn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_marginStart="280dp"-->
-<!--            android:layout_marginTop="80dp"-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/callbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="285dp"
+            android:layout_marginTop="80dp"
 
-<!--            android:clickable="true"-->
-<!--            android:onClick="ctlogin"-->
-<!--            app:backgroundTint="#64DD17"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.828"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintVertical_bias="0.918"-->
-<!--            app:srcCompat="@drawable/baseline_call_24" />-->
+            android:clickable="true"
+            app:backgroundTint="#00C351"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.828"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.918"
+            app:srcCompat="@drawable/baseline_call_24" />
 
     </RelativeLayout>
 

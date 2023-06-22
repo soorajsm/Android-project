@@ -24,14 +24,14 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/setscmimg"
-            android:layout_width="150dp"
+            android:layout_width="220dp"
             android:layout_height="150dp"
 
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="false"
             android:layout_gravity="center|center_vertical"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="68dp"
             android:layout_marginTop="70dp"
             android:foregroundGravity="center"
             android:padding="3dp"
@@ -42,23 +42,23 @@
             app:civ_border_width="1dp"
             app:shapeAppearance="@style/roundrect"
             app:strokeColor="@color/blueshade1"
-            app:strokeWidth="5dp"
+            app:strokeWidth="4dp"
 
 
             />
 
-<!--        <com.google.android.material.imageview.ShapeableImageView-->
-<!--            android:id="@+id/setscmimg"-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:layout_marginLeft="60dp"-->
-<!--            android:layout_marginTop="400dp" />-->
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/setscmimg"-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="100dp"-->
+        <!--            android:layout_marginLeft="60dp"-->
+        <!--            android:layout_marginTop="400dp" />-->
 
         <TextView
             android:id="@+id/setscmtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentStart="false"
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="true"
@@ -98,17 +98,53 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="294dp"
-            android:layout_marginTop="29dp"
+            android:layout_marginStart="305dp"
+            android:layout_marginTop="70dp"
             android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.828"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.918"
             app:rippleColor="#FF0000"
             app:srcCompat="@drawable/delete" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_below="@id/setscmdesc"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="26dp"
+            android:text="website link :"
+            android:textAlignment="viewStart"
+            android:textColor="#FFAB00"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/setscmurl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_below="@id/setscmdesc"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="20dp"
+            android:autoLink="web"
+            android:text="kkkkk"
+            android:textAllCaps="false"
+            android:textColor="#00DDFF"
+            android:textColorHighlight="#00DDFF"
+            android:textColorLink="#00DDFF"
+            android:textSize="18sp"
+            android:textStyle="normal" />
 
     </RelativeLayout>
 

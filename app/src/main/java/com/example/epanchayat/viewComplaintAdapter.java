@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.MemoryLruGcSettings;
 
 import java.nio.file.attribute.AclEntryFlag;
@@ -36,7 +43,9 @@ public class viewComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, vi
      * @param options
      */
 
-    String flag;
+    String flag,complaintrply;
+
+    DatabaseReference databaseReference;
 
 
     public viewComplaintAdapter(@NonNull FirebaseRecyclerOptions<Complaints> options) {
@@ -51,6 +60,10 @@ public class viewComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, vi
 
         holder.comptitle.setText(model.getComptitle());
         holder.compdesc.setText(model.getCompdesc());
+        holder.ctname.setText(model.getCtname());
+
+        databaseReference=FirebaseDatabase.getInstance().getReference("Complaints");
+
 
 
 
@@ -63,20 +76,23 @@ public class viewComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, vi
                 .into(holder.img);
 
 
-        // Performing delete operation
 
-        holder.seenCompbtn.setOnClickListener(new View.OnClickListener() {
+
+        holder.subcomprplybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(holder.comptitle.getContext());
                 builder.setTitle("Are you sure? ");
                 builder.setMessage("This action can't be undone!");
+                 complaintrply=holder.comprply.getText().toString();
+                 holder.comprply.setText("");
 
-                builder.setPositiveButton("Seen", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(holder.comptitle.getContext(), "Seen", Toast.LENGTH_SHORT).show();
-                        FirebaseDatabase.getInstance().getReference("Complaints").child(model.comptitle).child("flag").setValue("seen");
+                        Toast.makeText(holder.comptitle.getContext(), "solved", Toast.LENGTH_SHORT).show();
+                        databaseReference.child(model.comptitle).child("flag").setValue("solved");
+                        databaseReference.child(model.comptitle).child("compreply").setValue(complaintrply);
 
 
                     }
@@ -90,9 +106,48 @@ public class viewComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, vi
                 });
                 builder.show();
 
+            }
 
+
+        });
+
+
+        //fetching the complaint reply alone from realtime db to set to the textview
+        DatabaseReference nodeReference = databaseReference.child(model.comptitle).child("compreply");
+        nodeReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Handle the retrieved data here
+                if (dataSnapshot.exists()) {
+                    // Data is available
+                    String value = dataSnapshot.getValue(String.class);
+                    holder.pdorply.setText(value);
+
+                    if(holder.pdorply.getText().toString().length()>=0)
+                    {
+                        holder.comprply.setVisibility(View.GONE);
+                        holder.subcomprplybtn.setVisibility(View.GONE);
+                        holder.comprply.setHint("");
+                        holder.textlayout.setVisibility(View.GONE);
+                    }
+                    // Do something with the retrieved value
+                } else {
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle any errors here
+                Toast.makeText(holder.comptitle.getContext(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
+
+
+
 
         flag= model.getFlag();
         if(flag!=null)
@@ -112,8 +167,11 @@ public class viewComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, vi
     class myViewholder extends RecyclerView.ViewHolder{
 
         ShapeableImageView img;
-        TextView comptitle,compdesc,status;
+        TextView comptitle,compdesc,status,ctname,pdorply;
 
+        TextInputLayout textlayout;
+        EditText comprply;
+        Button subcomprplybtn;
         FloatingActionButton seenCompbtn;
 
 
@@ -124,7 +182,13 @@ public class viewComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, vi
             comptitle=itemView.findViewById(R.id.setcomptitle);
             compdesc=itemView.findViewById(R.id.setcompdesc);
             status=itemView.findViewById(R.id.status);
-            seenCompbtn=itemView.findViewById(R.id.seencmpbtn);
+            ctname=itemView.findViewById(R.id.cname);
+            subcomprplybtn=itemView.findViewById(R.id.comprplysubmitbtn);
+            comprply=itemView.findViewById(R.id.rplytocomplaint);
+            pdorply=itemView.findViewById(R.id.pdorply);
+            textlayout=itemView.findViewById(R.id.textlayout);
+
+
 
 
         }

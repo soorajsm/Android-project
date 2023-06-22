@@ -19,7 +19,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, ComplaintAdapter.myViewholder> {
@@ -29,7 +35,9 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
      *
      * @param options
      */
-
+    DatabaseReference databaseReference;
+    FirebaseAuth auth;
+    FirebaseUser user;
     String flag;
 
     public ComplaintAdapter(@NonNull FirebaseRecyclerOptions<Complaints> options) {
@@ -42,8 +50,16 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
 
         //fetching data and setting to the corresponding fields
 
+        auth=FirebaseAuth.getInstance();
+        user=auth.getCurrentUser();
+
+        String curUEmail=user.getEmail();
+
+
         holder.comptitle.setText(model.getComptitle());
         holder.compdesc.setText(model.getCompdesc());
+        holder.cname.setText(model.getCtname());
+        databaseReference=FirebaseDatabase.getInstance().getReference("Complaints");
 
 
 
@@ -67,8 +83,20 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(holder.comptitle.getContext(), "deleted", Toast.LENGTH_SHORT).show();
-                        FirebaseDatabase.getInstance().getReference().child("Complaints").child(getRef(newposition).getKey()).removeValue();
+
+                        String oriUEmail=holder.cname.getText().toString();
+                        if(oriUEmail.equals(curUEmail)){
+
+                            Toast.makeText(holder.comptitle.getContext(), "deleted", Toast.LENGTH_SHORT).show();
+                            FirebaseDatabase.getInstance().getReference().child("Complaints").child(getRef(newposition).getKey()).removeValue();
+
+                        }
+                        else {
+                           builder.setTitle("Caught you!!");
+                           builder.setMessage("You are not Authorised to delete this perticular complaint.");
+                           builder.show();
+                        }
+
                     }
                 });
 
@@ -88,8 +116,29 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
         if(flag!=null)
             holder.status.setText(model.getFlag());
         else
-            holder.status.setText("Pending");
+            holder.status.setText("*Pending");
 
+        //fetching the complaint reply alone from realtime db to set to the textview
+        DatabaseReference nodeReference = databaseReference.child(model.comptitle).child("compreply");
+        nodeReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Handle the retrieved data here
+                if (dataSnapshot.exists()) {
+                    // Data is available
+                    String value = dataSnapshot.getValue(String.class);
+                    holder.pdorply.setText(value);
+                    // Do something with the retrieved value
+                } else {
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle any errors here
+                Toast.makeText(holder.comptitle.getContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     @NonNull
     @Override
@@ -102,7 +151,7 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
     class myViewholder extends RecyclerView.ViewHolder{
 
         ShapeableImageView img;
-        TextView comptitle,compdesc,status;
+        TextView comptitle,compdesc,status,pdorply,cname;
         FloatingActionButton deleteCompbtn;
 
 
@@ -116,6 +165,8 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
 
             deleteCompbtn=itemView.findViewById(R.id.deletecompbtn);
             status=itemView.findViewById(R.id.status);
+            pdorply=itemView.findViewById(R.id.pdorply);
+            cname=itemView.findViewById(R.id.cname);
 
         }
     }

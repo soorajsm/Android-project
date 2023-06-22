@@ -30,6 +30,7 @@
         android:id="@+id/textView"
         android:layout_width="372dp"
         android:layout_height="84dp"
+        android:fontFamily="@font/audiowide"
         android:text="WELCOME TO E-PANCHAYAT"
         android:textAlignment="center"
         android:textColor="#0998AF"
@@ -44,8 +45,9 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="64dp"
-        android:layout_height="39dp"
+        android:layout_width="107dp"
+        android:layout_height="38dp"
+        android:fontFamily="@font/audiowide"
         android:text="PDO"
         android:textAlignment="center"
         android:textColor="#0998AF"
@@ -78,6 +80,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
         android:text="CITIZENS"
         android:textAlignment="center"
         android:textColor="#0998AF"

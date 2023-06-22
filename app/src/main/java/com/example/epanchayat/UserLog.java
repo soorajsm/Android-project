@@ -25,34 +25,23 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UserLog extends AppCompatActivity {
-
     static boolean flag;
     EditText LogEmail,LogPass;
-    TextView tv1;
 
+
+    TextView tv1,tv2;
     FirebaseAuth mAuth;
     FirebaseFirestore fStore;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            if(!flag)
-            {
-                Intent intent=new Intent(UserLog.this,HomePage.class);
-                startActivity(intent);
-                finish();
-            }else
-            {
-                Intent intent=new Intent(UserLog.this,Userhome.class);
-                startActivity(intent);
-                finish();
-            }
-
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if(currentUser != null){
+//            checkUserAccessLevel(currentUser.getUid());
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +51,7 @@ public class UserLog extends AppCompatActivity {
         LogPass=findViewById(R.id.LogPass);
         mAuth=FirebaseAuth.getInstance();
         tv1=findViewById(R.id.toReg);
+        tv2=findViewById(R.id.ForgotPass);
 
         //Firebase Objects
         mAuth=FirebaseAuth.getInstance();
@@ -75,10 +65,20 @@ public class UserLog extends AppCompatActivity {
                 finish();
             }
         });
+
+        tv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(UserLog.this,Forgot_Password.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 
     public void onClick2(View view){
-//        Toast.makeText(UserLog.this,LogEmail.getText().toString(),Toast.LENGTH_LONG).show();
         String em,pass;
         em=String.valueOf(LogEmail.getText());
         pass=String.valueOf(LogPass.getText());
@@ -113,6 +113,7 @@ public class UserLog extends AppCompatActivity {
                     }
                 });
     }
+
 
     private void checkUserAccessLevel(String uid) {
         DocumentReference df=fStore.collection("Users").document(uid);

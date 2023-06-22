@@ -24,25 +24,25 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/setcompimg"
-            android:layout_width="150dp"
+            android:layout_width="220dp"
             android:layout_height="150dp"
 
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="false"
             android:layout_gravity="center|center_vertical"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="70dp"
             android:foregroundGravity="center"
             android:padding="3dp"
             android:scaleType="centerCrop"
             android:src="@drawable/googleg_standard_color_18"
 
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="1dp"
+            app:civ_border_color="#FF3D00"
+            app:civ_border_width="0dp"
             app:shapeAppearance="@style/roundrect"
             app:strokeColor="@color/blueshade1"
-            app:strokeWidth="5dp"
+            app:strokeWidth="4dp"
 
 
             />
@@ -79,12 +79,11 @@
             android:layout_centerHorizontal="false"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="60dp"
             android:text="desc"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/deletecompbtn"
@@ -120,6 +119,63 @@
             android:textColor="#FFD600"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_below="@id/setcompimg"
+            android:layout_centerInParent="false"
+            android:layout_centerHorizontal="false"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="complaint by :"
+            android:textAlignment="viewStart"
+            android:textColor="#00DDFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cname"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_below="@id/setcompimg"
+            android:layout_centerInParent="false"
+            android:layout_centerHorizontal="false"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="20dp"
+
+            android:text="hahahh"
+            android:textAlignment="viewStart"
+            android:textColor="#FF6D00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/pdo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/setcompdesc"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:text="Reply from PDO :"
+            android:textAlignment="viewStart"
+            android:textColor="#00DDFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pdorply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pdo"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 

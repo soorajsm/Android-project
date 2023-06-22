@@ -65,7 +65,7 @@ public class Userhome extends AppCompatActivity {
 
     public void viewComplaints(View v)
     {
-        Intent intent=new Intent(getApplicationContext(),Schemelist.class);
+        Intent intent=new Intent(getApplicationContext(),Complaintlist.class);
         startActivity(intent);
         finish();
     }

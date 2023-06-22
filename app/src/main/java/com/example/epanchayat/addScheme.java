@@ -31,7 +31,7 @@ import java.util.Locale;
 
 public class addScheme extends AppCompatActivity {
     ActivityAddSchemeBinding binding;
-    String scmtitle,scmpdesc,image;
+    String scmtitle,scmpdesc,image,scmurl;
     StorageReference storageReference;
     DatabaseReference reference;
     ProgressDialog progressDialog;
@@ -104,6 +104,7 @@ public class addScheme extends AppCompatActivity {
 
         scmtitle=binding.inputscmtitle.getText().toString();
         scmpdesc=binding.inputscmdesc.getText().toString();
+        scmurl=binding.inputscmurl.getText().toString();
 
 
 
@@ -159,7 +160,7 @@ public class addScheme extends AppCompatActivity {
         if(!scmtitle.isEmpty() && !scmpdesc.isEmpty()) {
 
             reference= FirebaseDatabase.getInstance().getReference("Schemes");
-            Schemes schemes = new Schemes(scmtitle, scmpdesc,image);
+            Schemes schemes = new Schemes(scmtitle, scmpdesc,image,scmurl);
 
 
             reference.child(scmtitle).setValue(schemes).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -182,7 +183,11 @@ public class addScheme extends AppCompatActivity {
 
 }
 class Schemes {
-    String scmtitle,scmdesc;
+    String scmtitle;
+    String scmdesc;
+
+
+    String scmurl;
 
     String image;
 //    String key;
@@ -191,10 +196,11 @@ class Schemes {
     public Schemes() {
     }
 
-    public Schemes(String scmtitle, String scmdesc,String image) {
+    public Schemes(String scmtitle, String scmdesc,String image,String scmurl) {
         this.scmtitle = scmtitle;
         this.scmdesc = scmdesc;
         this.image=image;
+        this.scmurl=scmurl;
     }
 
     public String getScmtitle() {
@@ -220,5 +226,10 @@ class Schemes {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getScmurl() {return scmurl;}
+
+    public void setScmurl(String scmurl) {this.scmurl = scmurl;}
+
 }
 

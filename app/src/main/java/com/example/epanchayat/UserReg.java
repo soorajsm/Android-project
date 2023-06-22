@@ -23,15 +23,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class UserReg extends AppCompatActivity {
 
-    EditText editTextEmail,editTextPassword;
+    EditText editTextEmail,editTextPassword,userName,userPhone,userAddress;
     Button buttonReg;
 
     TextView reg;
 
-    ProgressBar progressBar;
+//    ProgressBar progressBar;
 
     FirebaseAuth mAuth;
     FirebaseFirestore fStore;
@@ -42,6 +43,10 @@ public class UserReg extends AppCompatActivity {
         setContentView(R.layout.activity_user_reg);
         editTextEmail=findViewById(R.id.regEmail);
         editTextPassword=findViewById(R.id.regPass);
+        userAddress=findViewById(R.id.regAddress);
+        userName=findViewById(R.id.regName);
+        userPhone=findViewById(R.id.regPhone);
+
 
         //Firebase Objects
         mAuth=FirebaseAuth.getInstance();
@@ -63,9 +68,12 @@ public class UserReg extends AppCompatActivity {
 
     public void onClick1(View v){
 //        progressBar.setVisibility(View.VISIBLE);
-        String email,password;
+        String email,password,name,address,phone;
         email=String.valueOf(editTextEmail.getText());
         password=String.valueOf(editTextPassword.getText());
+        name=String.valueOf(userName.getText());
+        address=String.valueOf(userAddress.getText());
+        phone=String.valueOf(userPhone.getText());
         if(TextUtils.isEmpty(email)){
             Toast.makeText(UserReg.this,"The Email should not be empty",Toast.LENGTH_LONG).show();
             return;
@@ -74,12 +82,20 @@ public class UserReg extends AppCompatActivity {
             Toast.makeText(UserReg.this,"The Password should not be empty",Toast.LENGTH_LONG).show();
             return;
         }
+        if(!(phone.length()==10)){
+            Toast.makeText(UserReg.this,"The Phone Number should be within 10 digits",Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(!isValid(password)){
+            Toast.makeText(UserReg.this,"Generate a Strong Password",Toast.LENGTH_LONG).show();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressBar.setVisibility(View.GONE);
+//                        progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
 //                            Log.d(TAG, "createUserWithEmail:success");
@@ -88,6 +104,9 @@ public class UserReg extends AppCompatActivity {
                             Map<String,Object> userInfo=new HashMap<>();
                             userInfo.put("userEmail",email);
                             userInfo.put("userPassword",password);
+                            userInfo.put("userName",name);
+                            userInfo.put("userAddress",address);
+                            userInfo.put("userPhone",phone);
 
                             // Spcify userrrr
                             userInfo.put("isUser","1");
@@ -106,4 +125,27 @@ public class UserReg extends AppCompatActivity {
                     }
                 });
     }
+    Pattern lowercase=Pattern.compile("^.*[a-z].*$");
+    Pattern uppercase=Pattern.compile("^.*[A-Z].*$");
+    Pattern numerics=Pattern.compile("^.*[0-9].*$");
+    Pattern spl=Pattern.compile("^.*[^A-Z0-9a-z].*$");
+    //    Pattern lowercase=Pattern.compile("^.*[a-z].*$");
+    public boolean isValid(String password){
+        if(password.length()<8){
+            return false;
+        }
+        if(!lowercase.matcher(password).matches())
+            return false;
+        if(!uppercase.matcher(password).matches())
+            return false;
+        if(!numerics.matcher(password).matches())
+            return false;
+        if(!spl.matcher(password).matches())
+            return false;
+        return true;
+    }
+
+//    public boolean isNum(String phone){
+//        if()
+//    }
 }

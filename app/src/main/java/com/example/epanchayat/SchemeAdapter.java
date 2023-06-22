@@ -44,7 +44,7 @@ public class SchemeAdapter extends FirebaseRecyclerAdapter<Schemes, SchemeAdapte
 
         holder.scmtitle.setText(model.getScmtitle());
         holder.scmdesc.setText(model.getScmdesc());
-
+        holder.scmurl.setText(model.getScmurl());
 
 
         //To fetch the image we are using glid library
@@ -96,7 +96,7 @@ public class SchemeAdapter extends FirebaseRecyclerAdapter<Schemes, SchemeAdapte
     class myViewholder extends RecyclerView.ViewHolder{
 
         ShapeableImageView img;
-        TextView scmtitle,scmdesc;
+        TextView scmtitle,scmdesc,scmurl;
         FloatingActionButton deletescmbtn;
 
         public myViewholder(@NonNull View itemView) {
@@ -105,8 +105,8 @@ public class SchemeAdapter extends FirebaseRecyclerAdapter<Schemes, SchemeAdapte
             img=itemView.findViewById(R.id.setscmimg);
             scmtitle=itemView.findViewById(R.id.setscmtitle);
             scmdesc=itemView.findViewById(R.id.setscmdesc);
-
             deletescmbtn=itemView.findViewById(R.id.deletescmbtn);
+            scmurl=itemView.findViewById(R.id.setscmurl);
 
         }
     }
