@@ -3,11 +3,17 @@ package com.example.epanchayat;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -19,8 +25,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -43,7 +53,7 @@ public class addScheme extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityAddSchemeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        reference= FirebaseDatabase.getInstance().getReference("Schemes");
         binding.scmimgchoosebtn.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 selectImage();
@@ -67,7 +77,34 @@ public class addScheme extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
+
+
     }
+
+
+    //  Notify method
+    @SuppressLint("MissingPermission")
+    public void Notification(){
+        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager=getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+        }
+
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
+                .setContentTitle("New scheme added")
+                .setSmallIcon(R.drawable.seen)
+                .setAutoCancel(true)
+                .setContentText(scmtitle);
+
+        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
+     managerCompat.notify(999,builder.build());
+    }
+
 
 
     // Selecting the image from galary usign implicit intent..
@@ -105,6 +142,24 @@ public class addScheme extends AppCompatActivity {
         scmtitle=binding.inputscmtitle.getText().toString();
         scmpdesc=binding.inputscmdesc.getText().toString();
         scmurl=binding.inputscmurl.getText().toString();
+
+
+        //Sending notfication on addition of new feature.
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Notification();
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {}
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {}
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {}
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+
 
 
 
@@ -159,7 +214,7 @@ public class addScheme extends AppCompatActivity {
 
         if(!scmtitle.isEmpty() && !scmpdesc.isEmpty()) {
 
-            reference= FirebaseDatabase.getInstance().getReference("Schemes");
+
             Schemes schemes = new Schemes(scmtitle, scmpdesc,image,scmurl);
 
 
@@ -179,16 +234,24 @@ public class addScheme extends AppCompatActivity {
             });
 
         }
+        else {
+            Toast.makeText(this, "please fill all the fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
+
 }
+
+
+
+
+
+
 class Schemes {
     String scmtitle;
     String scmdesc;
-
-
     String scmurl;
-
     String image;
 //    String key;
 

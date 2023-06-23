@@ -116,7 +116,7 @@ public class ComplaintAdapter extends FirebaseRecyclerAdapter<Complaints, Compla
         if(flag!=null)
             holder.status.setText(model.getFlag());
         else
-            holder.status.setText("*Pending");
+            holder.status.setText("*pending");
 
         //fetching the complaint reply alone from realtime db to set to the textview
         DatabaseReference nodeReference = databaseReference.child(model.comptitle).child("compreply");
