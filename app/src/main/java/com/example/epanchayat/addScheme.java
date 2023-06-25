@@ -82,6 +82,7 @@ public class addScheme extends AppCompatActivity {
 
 
 
+
     }
 
 
@@ -104,6 +105,7 @@ public class addScheme extends AppCompatActivity {
         NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
      managerCompat.notify(999,builder.build());
     }
+
 
 
 
@@ -295,4 +297,3 @@ class Schemes {
     public void setScmurl(String scmurl) {this.scmurl = scmurl;}
 
 }
-

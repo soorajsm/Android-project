@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blueshade1"
+    android:background="@color/purple_200"
     tools:context=".addComplaint">
 
     <ScrollView
@@ -37,10 +37,11 @@
                     android:layout_marginTop="25dp"
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="#707070"
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.18">
@@ -48,13 +49,13 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputcomptitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter the subject"
+                        android:layout_height="55dp"
+                        android:hint="Enter the Complaint"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/genderlayout"
@@ -64,19 +65,20 @@
                     android:layout_marginTop="44dp"
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="#707070"
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.666"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.386">
+                    app:layout_constraintVertical_bias="0.435">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputcompdesc"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
+                        android:background="@drawable/edittext_background"
                         android:gravity="top"
                         android:hint="Enter the discription here.."
                         android:padding="15dp"
@@ -84,23 +86,24 @@
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="305dp"
-                    android:layout_height="37dp"
+                    android:layout_width="327dp"
+                    android:layout_height="49dp"
                     android:layout_marginStart="-10dp"
                     android:fontFamily="@font/audiowide"
                     android:text="Add Complaints"
                     android:textAlignment="center"
-                    android:textColor="#00DDFF"
+                    android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.442"
+                    app:layout_constraintHorizontal_bias="0.188"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.085" />
+                    app:layout_constraintVertical_bias="0.127" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/inputcompimage"
@@ -121,23 +124,27 @@
                     tools:src="@tools:sample/avatars"
                     tools:srcCompat="@tools:sample/avatars" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/compimgchoosebtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="121dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/button_background"
                     android:text="Choose image"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.8"
+                    app:layout_constraintHorizontal_bias="0.885"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.753" />
+                    app:layout_constraintVertical_bias="0.754" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/compsubmitbtn"
                     android:layout_width="245dp"
                     android:layout_height="54dp"
                     android:text="Submit"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_background"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -149,6 +156,7 @@
                     android:layout_width="56dp"
                     android:layout_height="53dp"
                     android:clickable="true"
+                    android:background="@drawable/button_background"
                     app:backgroundTint="#5F54A2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

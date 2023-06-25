@@ -58,13 +58,13 @@ public class Addmembers extends AppCompatActivity {
         setContentView(binding.getRoot());
         reference= FirebaseDatabase.getInstance().getReference("Members");
         binding.chooseimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectImage();
+                                                 @Override
+                                                 public void onClick(View v) {
+                                                     selectImage();
 
 
-            }
-        }
+                                                 }
+                                             }
         );
 
         binding.submitdata.setOnClickListener(new View.OnClickListener() {
@@ -155,7 +155,7 @@ public class Addmembers extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
 
-            // here we are fetching the url of image that is stored in the firebase storage
+                                // here we are fetching the url of image that is stored in the firebase storage
 
                                 binding.memberimage.setImageURI(null);
                                 Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
@@ -185,7 +185,7 @@ public class Addmembers extends AppCompatActivity {
 
     }
 
-// Selecting the image from galary usign implicit intent..
+    // Selecting the image from galary usign implicit intent..
     private void selectImage() {
 
         Intent intent = new Intent();
@@ -228,8 +228,10 @@ public class Addmembers extends AppCompatActivity {
                     binding.memberarea.setText("");
 
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
+
                        if (progressDialog.isShowing())
                        progressDialog.dismiss();
+
                 }
             });
         }
@@ -240,7 +242,9 @@ public class Addmembers extends AppCompatActivity {
     }
 }
 
+
  class Members {
+
     String name;
     String gender;
     String post;
@@ -305,4 +309,3 @@ public class Addmembers extends AppCompatActivity {
     public void setImgurl(String imgurl) { this.image = imgurl;}
 
 }
-

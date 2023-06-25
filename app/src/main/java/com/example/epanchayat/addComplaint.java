@@ -61,13 +61,13 @@ public class addComplaint extends AppCompatActivity {
         user=auth.getCurrentUser();
 
         binding.compimgchoosebtn.setOnClickListener(new View.OnClickListener() {
-                                                 @Override
-                                                 public void onClick(View v) {
-                                                     selectImage();
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            selectImage();
 
 
-                                                 }
-                                             }
+                                                        }
+                                                    }
         );
 
         binding.compsubmitbtn.setOnClickListener(new View.OnClickListener() {
@@ -249,7 +249,7 @@ public class addComplaint extends AppCompatActivity {
         }
     }
 
-    }
+}
 
 
 
