@@ -79,9 +79,11 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputscmtitle"
                         android:layout_width="match_parent"
+
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
                         android:hint="Enter the name of Scheme"
+
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />

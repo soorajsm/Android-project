@@ -82,6 +82,7 @@ public class addScheme extends AppCompatActivity {
 
 
 
+
     }
 
 
@@ -102,8 +103,9 @@ public class addScheme extends AppCompatActivity {
                 .setContentText(scmtitle);
 
         NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
-        managerCompat.notify(999,builder.build());
+     managerCompat.notify(999,builder.build());
     }
+
 
 
 

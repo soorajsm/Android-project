@@ -228,8 +228,10 @@ public class Addmembers extends AppCompatActivity {
                     binding.memberarea.setText("");
 
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
-                    if (progressDialog.isShowing())
-                        progressDialog.dismiss();
+
+                       if (progressDialog.isShowing())
+                       progressDialog.dismiss();
+
                 }
             });
         }
@@ -240,7 +242,9 @@ public class Addmembers extends AppCompatActivity {
     }
 }
 
-class Members {
+
+ class Members {
+
     String name;
     String gender;
     String post;

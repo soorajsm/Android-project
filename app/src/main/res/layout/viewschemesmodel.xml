@@ -22,16 +22,17 @@
         android:paddingRight="0dp"
         android:paddingBottom="10dp">
 
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/setscmimg"
-            android:layout_width="150dp"
+            android:layout_width="220dp"
             android:layout_height="150dp"
 
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="false"
             android:layout_gravity="center|center_vertical"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="68dp"
             android:layout_marginTop="70dp"
             android:foregroundGravity="center"
             android:padding="3dp"
@@ -42,7 +43,7 @@
             app:civ_border_width="1dp"
             app:shapeAppearance="@style/roundrect"
             app:strokeColor="@color/blueshade1"
-            app:strokeWidth="5dp"
+            app:strokeWidth="4dp"
 
 
             />
@@ -50,9 +51,9 @@
 
         <TextView
             android:id="@+id/setscmtitle"
-            android:layout_width="match_parent"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentStart="false"
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="true"
