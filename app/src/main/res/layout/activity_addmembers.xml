@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blueshade1"
+    android:background="@color/purple_200"
     tools:context=".Addmembers">
 
     <ScrollView
@@ -41,15 +41,16 @@
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.666"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.678">
+                    app:layout_constraintVertical_bias="0.639">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberarea"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:hint="Enter the Area of the member"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
@@ -74,12 +75,13 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:hint="Enter the Age"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -100,9 +102,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberphone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:hint="Enter the Phone number"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
@@ -126,12 +129,13 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/membergender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:hint="Enter the Gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -152,12 +156,13 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberpost"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:hint="Enter the Post"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -172,16 +177,17 @@
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.666"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.106">
+                    app:layout_constraintVertical_bias="0.077">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/membername"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter the name"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
+                        android:hint="Enter the name of Member"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
@@ -196,33 +202,37 @@
                     android:src="@drawable/common_google_signin_btn_icon_dark_normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.25"
+                    app:layout_constraintHorizontal_bias="0.202"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.854"
+                    app:layout_constraintVertical_bias="0.811"
                     app:shapeAppearance="@style/roundrect"
                     app:strokeColor="@color/blueshade1"
                     app:strokeWidth="5dp"
                     tools:src="@tools:sample/avatars"
                     tools:srcCompat="@tools:sample/avatars" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/chooseimg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/button_background"
                     android:text="Choose image"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.815"
+                    app:layout_constraintHorizontal_bias="0.837"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.817" />
+                    app:layout_constraintVertical_bias="0.777" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/submitdata"
                     android:layout_width="245dp"
                     android:layout_height="54dp"
                     android:text="submitdata"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_background"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.53"
@@ -230,24 +240,24 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.963" />
 
+
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="272dp"
-                    android:layout_height="37dp"
+                    android:layout_width="340dp"
+                    android:layout_height="43dp"
                     android:layout_marginStart="-10dp"
                     android:fontFamily="@font/audiowide"
                     android:text="Add Members"
                     android:textAlignment="center"
-                    android:textColor="#00DDFF"
+                    android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.581"
+                    app:layout_constraintHorizontal_bias="0.617"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.057" />
-
+                    app:layout_constraintVertical_bias="0.032" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/flbuttonback"

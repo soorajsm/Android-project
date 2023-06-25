@@ -3,11 +3,17 @@ package com.example.epanchayat;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -18,6 +24,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -47,15 +56,15 @@ public class Addmembers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddmembersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        reference= FirebaseDatabase.getInstance().getReference("Members");
         binding.chooseimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectImage();
+                                                 @Override
+                                                 public void onClick(View v) {
+                                                     selectImage();
 
 
-            }
-        }
+                                                 }
+                                             }
         );
 
         binding.submitdata.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +88,28 @@ public class Addmembers extends AppCompatActivity {
 
     }
 
+
+
+    //  Notify method
+    @SuppressLint("MissingPermission")
+    public void Notification(){
+        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager=getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
+                .setContentTitle("New member added")
+                .setSmallIcon(R.drawable.seen)
+                .setAutoCancel(true)
+                .setContentText(name);
+
+        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
+        managerCompat.notify(999,builder.build());
+    }
+
+
     private void uploadData() {
 
         // uplaoding data and image link to the firebase realtime database ..
@@ -92,6 +123,21 @@ public class Addmembers extends AppCompatActivity {
         age=binding.memberage.getText().toString();
         phoneno=binding.memberphone.getText().toString();
         area=binding.memberarea.getText().toString();
+
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Notification();
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {}
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {}
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {}
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
 
 
 
@@ -109,7 +155,7 @@ public class Addmembers extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
 
-            // here we are fetching the url of image that is stored in the firebase storage
+                                // here we are fetching the url of image that is stored in the firebase storage
 
                                 binding.memberimage.setImageURI(null);
                                 Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
@@ -139,7 +185,7 @@ public class Addmembers extends AppCompatActivity {
 
     }
 
-// Selecting the image from galary usign implicit intent..
+    // Selecting the image from galary usign implicit intent..
     private void selectImage() {
 
         Intent intent = new Intent();
@@ -170,8 +216,6 @@ public class Addmembers extends AppCompatActivity {
 
             reference=FirebaseDatabase.getInstance().getReference("Members");
             Members members = new Members(name, gender, post, age, phoneno, area, image);
-
-
             reference.child(name).setValue(members).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
@@ -183,24 +227,20 @@ public class Addmembers extends AppCompatActivity {
                     binding.memberphone.setText("");
                     binding.memberarea.setText("");
 
-
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
-
-                       if (progressDialog.isShowing())
-                       progressDialog.dismiss();
-
+                    if (progressDialog.isShowing())
+                        progressDialog.dismiss();
                 }
             });
-
+        }
+        else {
+            Toast.makeText(this, "please fill all the fields", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
-
-
 }
 
-
-
- class Members {
+class Members {
     String name;
     String gender;
     String post;
@@ -209,8 +249,6 @@ public class Addmembers extends AppCompatActivity {
     String area;
     String image;
     String key;
-
-
     public Members() {
     }
 
@@ -223,65 +261,47 @@ public class Addmembers extends AppCompatActivity {
         this.phoneno = phoneno;
         this.area = area;
         this.image=image;
-
-
     }
 
     public String getKey() {return key;}
-
     public void setKey(String key) {this.key = key;}
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getGender() {
         return gender;
     }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
-
     public String getPost() {
         return post;
     }
-
     public void setPost(String post) {
         this.post = post;
     }
-
     public String getAge() {
         return age;
     }
-
     public void setAge(String age) {
         this.age = age;
     }
-
     public String getPhoneno() {
         return phoneno;
     }
-
     public void setPhoneno(String phoneno) {
         this.phoneno = phoneno;
     }
-
     public String getArea() {
         return area;
     }
-
     public void setArea(String area) {
         this.area = area;
     }
-
     public String getImgurl() {return image;}
-
     public void setImgurl(String imgurl) { this.image = imgurl;}
 
 }
-

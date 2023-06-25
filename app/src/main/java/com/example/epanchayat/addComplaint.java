@@ -3,11 +3,17 @@ package com.example.epanchayat;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -19,6 +25,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -43,21 +52,22 @@ public class addComplaint extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         binding=ActivityAddcomplaintBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        reference= FirebaseDatabase.getInstance().getReference("Complaints");
         auth=FirebaseAuth.getInstance();
         user=auth.getCurrentUser();
 
         binding.compimgchoosebtn.setOnClickListener(new View.OnClickListener() {
-                                                 @Override
-                                                 public void onClick(View v) {
-                                                     selectImage();
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            selectImage();
 
 
-                                                 }
-                                             }
+                                                        }
+                                                    }
         );
 
         binding.compsubmitbtn.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +90,28 @@ public class addComplaint extends AppCompatActivity {
 
 
     }
+
+
+    //  Notify method
+    @SuppressLint("MissingPermission")
+    public void Notification(){
+        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager=getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
+                .setContentTitle("New complaint added")
+                .setSmallIcon(R.drawable.seen)
+                .setAutoCancel(true)
+                .setContentText(comptitle);
+
+        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
+        managerCompat.notify(999,builder.build());
+    }
+
+
 
 
     // Selecting the image from galary usign implicit intent..
@@ -117,6 +149,23 @@ public class addComplaint extends AppCompatActivity {
         comptitle=binding.inputcomptitle.getText().toString();
         compdesc=binding.inputcompdesc.getText().toString();
         ctname=user.getEmail();
+
+        //Sending notfication on addition of new feature.
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Notification();
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {}
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {}
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {}
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+
 
 
 
@@ -194,9 +243,13 @@ public class addComplaint extends AppCompatActivity {
             });
 
         }
+        else {
+            Toast.makeText(this, "please fill all the fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
-    }
+}
 
 
 
