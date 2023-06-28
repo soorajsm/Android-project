@@ -25,8 +25,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintl"
                 android:layout_width="match_parent"
-                android:layout_height="843dp"
-                android:paddingLeft="20dp">
+                android:layout_height="843dp">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -41,20 +40,20 @@
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.18">
+                    app:layout_constraintVertical_bias="0.151">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputcomptitle"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        android:hint="Enter the Complaint"
                         android:background="@drawable/edittext_background"
+                        android:hint="Enter the Complaint"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -69,41 +68,38 @@
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.435">
+                    app:layout_constraintVertical_bias="0.355">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputcompdesc"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:background="@drawable/edittext_background"
-                        android:gravity="top"
                         android:hint="Enter the discription here.."
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="327dp"
-                    android:layout_height="49dp"
+                    android:layout_width="346dp"
+                    android:layout_height="51dp"
                     android:layout_marginStart="-10dp"
                     android:fontFamily="@font/audiowide"
                     android:text="Add Complaints"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/saphire"
                     android:textSize="34sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.188"
+                    app:layout_constraintHorizontal_bias="0.56"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.127" />
+                    app:layout_constraintVertical_bias="0.064" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/inputcompimage"
@@ -114,10 +110,10 @@
                     android:src="@drawable/common_google_signin_btn_icon_dark_normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintHorizontal_bias="0.118"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.775"
+                    app:layout_constraintVertical_bias="0.711"
                     app:shapeAppearance="@style/roundrect"
                     app:strokeColor="@color/blueshade1"
                     app:strokeWidth="5dp"
@@ -133,39 +129,23 @@
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.885"
+                    app:layout_constraintHorizontal_bias="0.886"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.754" />
+                    app:layout_constraintVertical_bias="0.686" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/compsubmitbtn"
                     android:layout_width="245dp"
                     android:layout_height="54dp"
+                    android:background="@drawable/button_background"
                     android:text="Submit"
                     android:textColor="@color/white"
-                    android:background="@drawable/button_background"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.937" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/flbuttonback"
-                    android:layout_width="56dp"
-                    android:layout_height="53dp"
-                    android:clickable="true"
-                    android:background="@drawable/button_background"
-                    app:backgroundTint="#5F54A2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.02"
-                    app:rippleColor="#FF0000"
-                    app:srcCompat="@drawable/backbutton" />
+                    app:layout_constraintVertical_bias="0.864" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,13 @@
 package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +49,9 @@ public class UserReg extends AppCompatActivity {
         userName=findViewById(R.id.regName);
         userPhone=findViewById(R.id.regPhone);
 
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         //Firebase Objects
         mAuth=FirebaseAuth.getInstance();
@@ -64,6 +69,13 @@ public class UserReg extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
     }
 
     public void onClick1(View v){

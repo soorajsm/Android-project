@@ -16,7 +16,7 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#356A7A"
+        android:background="@color/grey"
         android:paddingLeft="25dp"
         android:paddingTop="10dp"
         android:paddingRight="0dp"

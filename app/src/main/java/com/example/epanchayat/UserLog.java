@@ -1,6 +1,7 @@
 package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +55,10 @@ public class UserLog extends AppCompatActivity {
         tv1=findViewById(R.id.toReg);
         tv2=findViewById(R.id.ForgotPass);
 
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         //Firebase Objects
         mAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
@@ -78,6 +84,12 @@ public class UserLog extends AppCompatActivity {
 
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
     public void onClick2(View view){
         String em,pass;
         em=String.valueOf(LogEmail.getText());

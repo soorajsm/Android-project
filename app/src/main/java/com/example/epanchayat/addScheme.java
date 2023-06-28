@@ -2,6 +2,7 @@ package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -15,6 +16,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -51,6 +53,11 @@ public class addScheme extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         binding=ActivityAddSchemeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         reference= FirebaseDatabase.getInstance().getReference("Schemes");
@@ -69,19 +76,26 @@ public class addScheme extends AppCompatActivity {
             }
         });
 
-        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Schemelist.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(),Schemelist.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
 
 
 
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(),Schemelist.class);
+        startActivity(intent);
+        finish();
+        return true;
     }
 
 
