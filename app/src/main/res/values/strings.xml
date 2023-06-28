@@ -44,5 +44,6 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="title_activity_view_schemelist">viewSchemelist</string>
+    <string name="forgot_password">forgot password</string>
 
 </resources>

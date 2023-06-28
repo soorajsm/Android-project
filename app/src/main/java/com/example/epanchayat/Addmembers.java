@@ -2,6 +2,7 @@ package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -15,6 +16,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -54,17 +56,22 @@ public class Addmembers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         binding = ActivityAddmembersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         reference= FirebaseDatabase.getInstance().getReference("Members");
         binding.chooseimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectImage();
+                                                 @Override
+                                                 public void onClick(View v) {
+                                                     selectImage();
 
 
-            }
-        }
+                                                 }
+                                             }
         );
 
         binding.submitdata.setOnClickListener(new View.OnClickListener() {
@@ -77,17 +84,26 @@ public class Addmembers extends AppCompatActivity {
 
         //floatig action back button
 
-        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Memberlist.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(),Memberlist.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
     }
 
+<<<<<<< HEAD
+=======
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(),Memberlist.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+>>>>>>> features
 
 
     //  Notify method
@@ -155,7 +171,7 @@ public class Addmembers extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
 
-            // here we are fetching the url of image that is stored in the firebase storage
+                                // here we are fetching the url of image that is stored in the firebase storage
 
                                 binding.memberimage.setImageURI(null);
                                 Toast.makeText(Addmembers.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
@@ -185,7 +201,7 @@ public class Addmembers extends AppCompatActivity {
 
     }
 
-// Selecting the image from galary usign implicit intent..
+    // Selecting the image from galary usign implicit intent..
     private void selectImage() {
 
         Intent intent = new Intent();
@@ -228,8 +244,13 @@ public class Addmembers extends AppCompatActivity {
                     binding.memberarea.setText("");
 
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
                        if (progressDialog.isShowing())
                        progressDialog.dismiss();
+=======
+                    if (progressDialog.isShowing())
+                        progressDialog.dismiss();
+>>>>>>> features
                 }
             });
         }
@@ -240,7 +261,11 @@ public class Addmembers extends AppCompatActivity {
     }
 }
 
+<<<<<<< HEAD
  class Members {
+=======
+class Members {
+>>>>>>> features
     String name;
     String gender;
     String post;
@@ -305,4 +330,3 @@ public class Addmembers extends AppCompatActivity {
     public void setImgurl(String imgurl) { this.image = imgurl;}
 
 }
-

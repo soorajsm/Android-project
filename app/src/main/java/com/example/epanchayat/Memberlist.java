@@ -1,6 +1,7 @@
 package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -39,6 +41,10 @@ public class Memberlist extends AppCompatActivity {
         binding=ActivityMemberlistBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         recyclerView=binding.memrv;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -58,15 +64,22 @@ public class Memberlist extends AppCompatActivity {
             }
         });
 
-        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(), HomePage.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(), HomePage.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(), HomePage.class);
+        startActivity(intent);
+        finish();
+        return true;
     }
 
     @Override

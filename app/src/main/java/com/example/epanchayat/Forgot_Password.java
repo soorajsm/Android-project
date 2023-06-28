@@ -1,10 +1,12 @@
 package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +33,11 @@ public class Forgot_Password extends AppCompatActivity {
         txtEmail=findViewById(R.id.ForgotPass);
         mAuth=FirebaseAuth.getInstance();
 
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
         forg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +46,13 @@ public class Forgot_Password extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
     }
 
     public void forgotPass(View view){

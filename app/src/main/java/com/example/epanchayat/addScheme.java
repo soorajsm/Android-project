@@ -2,6 +2,7 @@ package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -15,6 +16,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -51,6 +53,11 @@ public class addScheme extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         binding=ActivityAddSchemeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         reference= FirebaseDatabase.getInstance().getReference("Schemes");
@@ -69,6 +76,7 @@ public class addScheme extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
         binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,12 +85,51 @@ public class addScheme extends AppCompatActivity {
                 finish();
             }
         });
+=======
+//        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(),Schemelist.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+>>>>>>> features
 
 
 
 
 
     }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(),Schemelist.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+
+    //  Notify method
+    @SuppressLint("MissingPermission")
+    public void Notification(){
+        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager=getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+        }
+
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
+                .setContentTitle("New scheme added")
+                .setSmallIcon(R.drawable.seen)
+                .setAutoCancel(true)
+                .setContentText(scmtitle);
+
+        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
+        managerCompat.notify(999,builder.build());
+    }
+
 
 
     //  Notify method
@@ -295,4 +342,3 @@ class Schemes {
     public void setScmurl(String scmurl) {this.scmurl = scmurl;}
 
 }
-
