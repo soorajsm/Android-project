@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/purple_200"
 
+
+
     tools:context=".MainActivity"
     tools:ignore="ExtraText"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="53dp">
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -28,6 +31,7 @@
         android:id="@+id/ctlogin"
         android:layout_width="158dp"
         android:layout_height="58dp"
+
         android:layout_marginStart="20dp"
         android:layout_marginTop="16sp"
         android:layout_marginEnd="32dp"
@@ -50,7 +54,9 @@
         android:fontFamily="@font/audiowide"
         android:text="WELCOME TO E-PANCHAYAT"
         android:textAlignment="center"
+
         android:textColor="@color/saphire"
+
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,13 +73,16 @@
         android:fontFamily="@font/audiowide"
         android:text="PDO"
         android:textAlignment="center"
+
         android:textColor="@color/saphire"
+
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.499" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -89,6 +98,7 @@
         android:text="LOGIN"
         android:textColor="@color/white"
         android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -103,14 +113,18 @@
         android:fontFamily="@font/audiowide"
         android:text="CITIZENS"
         android:textAlignment="center"
+
         android:textColor="@color/saphire"
+
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.704" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ctreg"
@@ -126,10 +140,12 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.823" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

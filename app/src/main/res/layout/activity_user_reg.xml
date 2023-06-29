@@ -11,16 +11,19 @@
 
     <TextView
         android:id="@+id/textView3"
+
         android:layout_width="259dp"
         android:layout_height="68dp"
         android:fontFamily="@font/audiowide"
         android:text="User Registration"
         android:textAlignment="viewStart"
         android:textColor="@color/saphire"
+
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -157,10 +160,12 @@
         android:layout_height="22dp"
         android:text="Click here to Login"
         android:textAlignment="center"
+
         android:textColor="@color/saphire"
         android:textColorHighlight="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"

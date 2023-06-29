@@ -95,15 +95,12 @@ public class Addmembers extends AppCompatActivity {
 
     }
 
-<<<<<<< HEAD
-=======
     public boolean onOptionsItemSelected(MenuItem item){
         Intent intent=new Intent(getApplicationContext(),Memberlist.class);
         startActivity(intent);
         finish();
         return true;
     }
->>>>>>> features
 
 
     //  Notify method
@@ -244,13 +241,10 @@ public class Addmembers extends AppCompatActivity {
                     binding.memberarea.setText("");
 
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
-<<<<<<< HEAD
+
+
                        if (progressDialog.isShowing())
-                       progressDialog.dismiss();
-=======
-                    if (progressDialog.isShowing())
-                        progressDialog.dismiss();
->>>>>>> features
+                       progressDialog.dismiss(
                 }
             });
         }
@@ -261,11 +255,9 @@ public class Addmembers extends AppCompatActivity {
     }
 }
 
-<<<<<<< HEAD
  class Members {
-=======
-class Members {
->>>>>>> features
+
+
     String name;
     String gender;
     String post;
