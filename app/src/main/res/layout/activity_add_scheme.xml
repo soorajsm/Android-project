@@ -25,8 +25,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintl"
                 android:layout_width="match_parent"
-                android:layout_height="843dp"
-                android:paddingLeft="20dp">
+                android:layout_height="843dp">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -47,16 +46,21 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.617">
 
+
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputscmurl"
                         android:layout_width="match_parent"
+
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
                         android:hint="Enter the url here.."
+
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
 
@@ -67,14 +71,18 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
+
                     android:textSize="20sp"
+
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.666"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.163">
+
+                    app:layout_constraintVertical_bias="0.155">
+
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputscmtitle"
@@ -83,7 +91,6 @@
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
                         android:hint="Enter the name of Scheme"
-
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
@@ -111,7 +118,9 @@
                         android:id="@+id/inputscmdesc"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
+
                         android:background="@drawable/edittext_background"
+
                         android:gravity="top"
                         android:hint="Enter the discription here.."
                         android:padding="15dp"
@@ -136,6 +145,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.102" />
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="318dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="-10dp"
+                    android:fontFamily="@font/audiowide"
+                    android:text="Add Schemes"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/saphire"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.291"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.07" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/inputscmimage"
@@ -179,25 +207,11 @@
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.925" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/flbuttonback"
-                    android:layout_width="56dp"
-                    android:layout_height="53dp"
-                    android:background="@drawable/button_background"
-                    android:clickable="true"
-                    app:backgroundTint="#5F54A2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.02"
-                    app:rippleColor="#FF0000"
-                    app:srcCompat="@drawable/backbutton" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

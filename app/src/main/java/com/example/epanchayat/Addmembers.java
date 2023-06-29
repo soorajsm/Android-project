@@ -2,6 +2,7 @@ package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -15,6 +16,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -54,6 +56,11 @@ public class Addmembers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         binding = ActivityAddmembersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         reference= FirebaseDatabase.getInstance().getReference("Members");
@@ -77,17 +84,23 @@ public class Addmembers extends AppCompatActivity {
 
         //floatig action back button
 
-        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Memberlist.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(),Memberlist.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(),Memberlist.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
 
 
     //  Notify method
@@ -229,9 +242,9 @@ public class Addmembers extends AppCompatActivity {
 
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
 
-                       if (progressDialog.isShowing())
-                       progressDialog.dismiss();
 
+                       if (progressDialog.isShowing())
+                       progressDialog.dismiss(
                 }
             });
         }
@@ -242,8 +255,8 @@ public class Addmembers extends AppCompatActivity {
     }
 }
 
-
  class Members {
+
 
     String name;
     String gender;

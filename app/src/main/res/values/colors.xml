@@ -2,7 +2,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="purple_200">#130041</color>
+
+    <color name="purple_200">#FFFFFFFF</color>
+    <color name="saphire">#89AB0D </color>
+    <color name="grey">#8797AF </color>
+
     <color name="blueshade1">#0e2433</color>
     <color name="blueshade2">#1C4966</color>
     <color name="strokecolor" tools:overrise="true">#296D98</color>

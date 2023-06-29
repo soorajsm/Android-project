@@ -7,12 +7,14 @@
 package com.example.epanchayat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -45,6 +47,11 @@ public class Complaintlist extends AppCompatActivity {
         binding=ActivityComplaintlistBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
         recyclerView=binding.complaintrv;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -65,14 +72,21 @@ public class Complaintlist extends AppCompatActivity {
         });
 
 
-        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(), Userhome.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(), Userhome.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(getApplicationContext(), Userhome.class);
+        startActivity(intent);
+        finish();
+        return true;
     }
 
     @Override

@@ -14,7 +14,9 @@
         android:fontFamily="@font/audiowide"
         android:text="User Login"
         android:textAlignment="viewStart"
-        android:textColor="@color/white"
+
+        android:textColor="@color/saphire"
+
         android:textSize="29sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,8 +94,11 @@
         android:layout_height="27dp"
         android:text="Click To Register"
         android:textAlignment="viewStart"
-        android:textColor="#FFFFFF"
+
+        android:textColor="@color/saphire"
         android:textSize="16sp"
+        android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -105,10 +110,13 @@
         android:id="@+id/ForgotPass"
         android:layout_width="125dp"
         android:layout_height="27dp"
-        android:text="Forgot Password"
+        android:text="@string/forgot_password"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+
+        android:textColor="@color/saphire"
         android:textSize="16sp"
+        android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"

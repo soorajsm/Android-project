@@ -5,15 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_200"
+
+
+
     tools:context=".MainActivity"
     tools:ignore="ExtraText"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="53dp">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="226dp"
+        android:layout_height="178dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.262"
+        tools:srcCompat="@drawable/logo" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ctlogin"
-        android:layout_width="157dp"
-        android:layout_height="57dp"
+        android:layout_width="158dp"
+        android:layout_height="58dp"
+
         android:layout_marginStart="20dp"
         android:layout_marginTop="16sp"
         android:layout_marginEnd="32dp"
@@ -27,7 +45,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.832" />
+        app:layout_constraintVertical_bias="0.823" />
 
     <TextView
         android:id="@+id/textView"
@@ -36,15 +54,17 @@
         android:fontFamily="@font/audiowide"
         android:text="WELCOME TO E-PANCHAYAT"
         android:textAlignment="center"
-        android:textColor="@color/white"
+
+        android:textColor="@color/saphire"
+
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintVertical_bias="0.061" />
 
     <TextView
         android:id="@+id/textView2"
@@ -53,33 +73,38 @@
         android:fontFamily="@font/audiowide"
         android:text="PDO"
         android:textAlignment="center"
-        android:textColor="@color/white"
+
+        android:textColor="@color/saphire"
+
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+
+        app:layout_constraintVertical_bias="0.499" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/pdologin"
-        android:onClick="ctlogin"
-        android:text="LOGIN"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:textSize="20sp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="16sp"
+
         android:layout_marginStart="20dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="16sp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/button_background"
+        android:onClick="ctlogin"
+        android:text="LOGIN"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintVertical_bias="0.601" />
 
     <TextView
         android:id="@+id/textView4"
@@ -88,14 +113,18 @@
         android:fontFamily="@font/audiowide"
         android:text="CITIZENS"
         android:textAlignment="center"
-        android:textColor="@color/white"
+
+        android:textColor="@color/saphire"
+
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692" />
+
+        app:layout_constraintVertical_bias="0.704" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ctreg"
@@ -111,10 +140,12 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+
+        app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834" />
+        app:layout_constraintVertical_bias="0.823" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
