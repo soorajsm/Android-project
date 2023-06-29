@@ -107,10 +107,9 @@
                         android:id="@+id/inputscmdesc"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-<<<<<<< HEAD
-=======
+
                         android:background="@drawable/edittext_background"
->>>>>>> features
+
                         android:gravity="top"
                         android:hint="Enter the discription here.."
                         android:padding="15dp"
