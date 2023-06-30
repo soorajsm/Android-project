@@ -55,13 +55,12 @@ public class addComplaint extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-<<<<<<< HEAD
-=======
+
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
 
->>>>>>> features
+
         super.onCreate(savedInstanceState);
         binding=ActivityAddcomplaintBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -131,24 +130,24 @@ public class addComplaint extends AppCompatActivity {
 
 
     //  Notify method
-    @SuppressLint("MissingPermission")
-    public void Notification(){
-        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
-            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager=getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-
-        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
-                .setContentTitle("New complaint added")
-                .setSmallIcon(R.drawable.seen)
-                .setAutoCancel(true)
-                .setContentText(comptitle);
-
-        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
-        managerCompat.notify(999,builder.build());
-    }
-
+//    @SuppressLint("MissingPermission")
+//    public void Notification(){
+//        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+//            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+//            NotificationManager manager=getSystemService(NotificationManager.class);
+//            manager.createNotificationChannel(channel);
+//        }
+//
+//        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
+//                .setContentTitle("New complaint added")
+//                .setSmallIcon(R.drawable.seen)
+//                .setAutoCancel(true)
+//                .setContentText(comptitle);
+//
+//        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
+//        managerCompat.notify(999,builder.build());
+//    }
+//
 
 
 

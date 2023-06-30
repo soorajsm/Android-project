@@ -95,12 +95,20 @@ public class Addmembers extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 38f2b79 (error corrected)
     public boolean onOptionsItemSelected(MenuItem item){
         Intent intent=new Intent(getApplicationContext(),Memberlist.class);
         startActivity(intent);
         finish();
         return true;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 38f2b79 (error corrected)
 
 
     //  Notify method
@@ -242,9 +250,18 @@ public class Addmembers extends AppCompatActivity {
 
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
 
+<<<<<<< HEAD
 
                        if (progressDialog.isShowing())
                        progressDialog.dismiss(
+=======
+                       if (progressDialog.isShowing())
+                       progressDialog.dismiss();
+
+                    if (progressDialog.isShowing())
+                        progressDialog.dismiss();
+
+>>>>>>> 38f2b79 (error corrected)
                 }
             });
         }
@@ -255,8 +272,12 @@ public class Addmembers extends AppCompatActivity {
     }
 }
 
+<<<<<<< HEAD
  class Members {
 
+=======
+class Members {
+>>>>>>> 38f2b79 (error corrected)
 
     String name;
     String gender;

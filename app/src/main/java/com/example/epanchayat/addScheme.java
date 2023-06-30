@@ -76,16 +76,7 @@ public class addScheme extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
-        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Schemelist.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-=======
+
 //        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -94,7 +85,16 @@ public class addScheme extends AppCompatActivity {
 //                finish();
 //            }
 //        });
->>>>>>> features
+
+//        binding.flbuttonback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(),Schemelist.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+
 
 
 
@@ -111,25 +111,25 @@ public class addScheme extends AppCompatActivity {
     }
 
 
-    //  Notify method
-    @SuppressLint("MissingPermission")
-    public void Notification(){
-        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
-            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager=getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-
-        }
-
-        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
-                .setContentTitle("New scheme added")
-                .setSmallIcon(R.drawable.seen)
-                .setAutoCancel(true)
-                .setContentText(scmtitle);
-
-        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
-        managerCompat.notify(999,builder.build());
-    }
+//    //  Notify method
+//    @SuppressLint("MissingPermission")
+//    public void Notification(){
+//        if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+//            NotificationChannel channel=new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+//            NotificationManager manager=getSystemService(NotificationManager.class);
+//            manager.createNotificationChannel(channel);
+//
+//        }
+//
+//        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,"n")
+//                .setContentTitle("New scheme added")
+//                .setSmallIcon(R.drawable.seen)
+//                .setAutoCancel(true)
+//                .setContentText(scmtitle);
+//
+//        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
+//        managerCompat.notify(999,builder.build());
+//    }
 
 
 
