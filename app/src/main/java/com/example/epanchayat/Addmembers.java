@@ -103,8 +103,6 @@ public class Addmembers extends AppCompatActivity {
         return true;
     }
 
-
-
     //  Notify method
     @SuppressLint("MissingPermission")
     public void Notification(){
@@ -244,11 +242,10 @@ public class Addmembers extends AppCompatActivity {
 
                     Toast.makeText(Addmembers.this, "Data submitted successfully", Toast.LENGTH_SHORT).show();
 
+
+
                        if (progressDialog.isShowing())
                        progressDialog.dismiss();
-
-                    if (progressDialog.isShowing())
-                        progressDialog.dismiss();
 
                 }
             });
@@ -260,7 +257,10 @@ public class Addmembers extends AppCompatActivity {
     }
 }
 
-class Members {
+
+ class Members {
+
+
 
     String name;
     String gender;

@@ -74,13 +74,18 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberage"
+
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
+
                         android:hint="Enter the Age"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -101,10 +106,15 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberphone"
+
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
+
                         android:hint="Enter the Phone number"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
@@ -128,13 +138,18 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/membergender"
+
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
+
                         android:hint="Enter the Gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -155,13 +170,20 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberpost"
+
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
+
                         android:hint="Enter the Post"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
+
                         android:textColor="#00FFFF"
                         android:textSize="16sp" />
+
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -232,6 +254,8 @@
                     android:background="@drawable/button_background"
                     android:text="submitdata"
                     android:textColor="@color/white"
+
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.53"
@@ -248,12 +272,16 @@
                     android:fontFamily="@font/audiowide"
                     android:text="Add Members"
                     android:textAlignment="center"
+
                     android:textColor="@color/saphire"
+
                     android:textSize="34sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+
                     app:layout_constraintHorizontal_bias="0.432"
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.032" />

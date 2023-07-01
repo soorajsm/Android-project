@@ -100,6 +100,7 @@ public class addScheme extends AppCompatActivity {
 
 
 
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
@@ -151,6 +152,7 @@ public class addScheme extends AppCompatActivity {
         NotificationManagerCompat managerCompat=NotificationManagerCompat.from(this);
      managerCompat.notify(999,builder.build());
     }
+
 
 
 

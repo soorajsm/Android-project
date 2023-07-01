@@ -46,12 +46,16 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.617">
 
+
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputscmurl"
                         android:layout_width="match_parent"
+
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
                         android:hint="Enter the url here.."
+
                         android:padding="15dp"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
@@ -67,17 +71,23 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
+
                     android:textSize="20sp"
+
                     app:hintTextColor="#00FFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.666"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+
                     app:layout_constraintVertical_bias="0.155">
+
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputscmtitle"
                         android:layout_width="match_parent"
+
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
                         android:hint="Enter the name of Scheme"
@@ -85,6 +95,7 @@
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/genderlayout"
@@ -116,6 +127,25 @@
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="318dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="-10dp"
+                    android:fontFamily="@font/audiowide"
+                    android:text="Add Schemes"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.65"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.102" />
+
 
                 <TextView
                     android:id="@+id/textView"
@@ -177,6 +207,8 @@
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.925" />
