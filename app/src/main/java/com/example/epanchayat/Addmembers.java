@@ -96,12 +96,14 @@ public class Addmembers extends AppCompatActivity {
     }
 
 
+
     public boolean onOptionsItemSelected(MenuItem item){
         Intent intent=new Intent(getApplicationContext(),Memberlist.class);
         startActivity(intent);
         finish();
         return true;
     }
+
 
     //  Notify method
     @SuppressLint("MissingPermission")
@@ -244,8 +246,11 @@ public class Addmembers extends AppCompatActivity {
 
 
 
+
                        if (progressDialog.isShowing())
+
                        progressDialog.dismiss();
+
 
                 }
             });
@@ -258,7 +263,7 @@ public class Addmembers extends AppCompatActivity {
 }
 
 
- class Members {
+class Members {
 
 
 
