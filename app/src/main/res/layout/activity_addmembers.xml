@@ -37,7 +37,7 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
-                    app:hintTextColor="#00FFFF"
+                    app:hintTextColor="#707070"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.666"
@@ -52,7 +52,7 @@
                         android:background="@drawable/edittext_background"
                         android:hint="Enter the Area of the member"
                         android:padding="15dp"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#717171"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,7 +64,7 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
-                    app:hintTextColor="#00FFFF"
+                    app:hintTextColor="#707070"
                     app:layout_constraintBottom_toTopOf="@+id/phonelayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -75,17 +75,14 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberage"
 
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@drawable/edittext_background"
 
-                        android:hint="Enter the Age"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
+                        android:hint="Enter the Age"
                         android:padding="15dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"/>
+                        android:textColor="#717171"
+                        android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -96,7 +93,7 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
-                    app:hintTextColor="#00FFFF"
+                    app:hintTextColor="#707070"
                     app:layout_constraintBottom_toTopOf="@+id/arealayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -107,16 +104,13 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/memberphone"
 
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@drawable/edittext_background"
 
-                        android:hint="Enter the Phone number"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
+                        android:hint="Enter the Phone number"
                         android:padding="15dp"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#717171"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +122,7 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
-                    app:hintTextColor="#00FFFF"
+                    app:hintTextColor="#707070"
                     app:layout_constraintBottom_toTopOf="@+id/agelayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -139,17 +133,14 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/membergender"
 
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@drawable/edittext_background"
 
-                        android:hint="Enter the Gender"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
+                        android:hint="Enter the Gender"
                         android:padding="15dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"/>
+                        android:textColor="#717171"
+                        android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -160,7 +151,7 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
-                    app:hintTextColor="#00FFFF"
+                    app:hintTextColor="#717171"
                     app:layout_constraintBottom_toTopOf="@+id/agelayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -174,14 +165,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/edittext_background"
-
                         android:hint="Enter the Post"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@drawable/edittext_background"
                         android:padding="15dp"
 
-                        android:textColor="#00FFFF"
+                        android:textColor="#717171"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -195,7 +182,7 @@
                     android:layout_marginRight="20dp"
                     android:padding="10dp"
                     android:textColorHint="#707070"
-                    app:hintTextColor="#00FFFF"
+                    app:hintTextColor="#707070"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.666"
@@ -210,7 +197,7 @@
                         android:background="@drawable/edittext_background"
                         android:hint="Enter the name of Member"
                         android:padding="15dp"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#717171"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
